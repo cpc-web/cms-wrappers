@@ -149,57 +149,124 @@
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T735RZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+	<style>
+		@media all and (min-width: 767px) {
+			#fundraisingModal,
+			.modal-backdrop {
+				display: none !important;	
+			}
+			
+		}
+		@media all and (max-width: 767px) {
+			#fundraisingModal {
+				display: block !important;	
+			}
+			#per-menu {
+				display: none !important;
+			}
+		}
+	</style>
 
-<!--////////////////////////////// LIGHTBOX MODAL BEGINS ///////////////////////////////////////// -->
-  <div class="modal fade" id="captureModal">
+ <!--////////////////////////////// PERSISTENT SLIDER/LIGHTBOX BEGINS /////////////////////////////////////// -->
+  <div id="per-menu">
+    <div class="col-xs-1 menu-sidebar">
+      <button class="btn-tab">
+        <span class="btn-tab-text">Donate Today
+          <i class="fa fa-chevron-up lightbox" ></i>
+          <i class="fa fa-chevron-down lightbox" ></i>
+        </span>
+      </button>
+    </div>
+    <div class="lightbox-header-img">
+      <h2>Support Central Park today and your gift will be MATCHED!</h2>
+    </div>
+    <div class="col-xs-11 lightbox-container">
+      <div class="col-xs-12 lightbox-spinner">
+        <i class="fa fa-spinner fa-pulse"></i><br/>
+        Directing to secure page for payment.
+      </div>
+      <div class="lightbox-header">
+        <div class="lightbox-header-text">
+
+        </div>
+
+      </div>
+      <div class="lightbox-body">
+        <div class="lightbox-body-text">
+          Make your tax-deductible gift by Dec. 31, and your donation will double thanks to a group of generous donors — up to $300,000!
+        </div>
+        <div class="lightbox-body-buttons">
+          <button class="btn-plb" id="level10837">$35</button>
+          <button class="btn-plb" id="level10838">$50</button>
+          <button class="btn-plb btn-plb-right" id="level10839">$100</button>
+          <button class="btn-plb" id="level10840">$250</button>
+          <button class="btn-plb" id="level10841">$500</button>
+          <button class="btn-plb btn-plb-right" id="level10842">$1000</button>
+        </div>
+        <div class="lightbox-body-other">
+          <div class="lightbox-body-other-wrap">
+            <span>$</span>
+            <input id="other_amount" name="other_amount" type="text" value="" placeholder="Other">
+          </div>
+        </div>
+        <div class="lightbox-body-monthly">
+          <input id="monthly_gift" name="monthly_gift" type="checkbox" /> Yes, automatically repeat this gift every month.
+        </div>
+        <div class="cta">
+          <a href="https://secure.centralparknyc.org/site/Donation2?df_id=6104&mfc_pref=T&6104.donation=form1&s_src=dsc17w&s_subsrc=web_lightbox_persist" class="donateCta"><button class="btn-cta">Donate Now</button></a>
+        </div>
+        <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>
+      </div>
+    </div>
+  </div>
+  <!--////////////////////////////// PERSISTENT SLIDER/LIGHTBOX ENDS /////////////////////////////////////// -->
+
+  
+  <!--////////////////////////////// MODAL BEGINS ///////////////////////////////////////// -->
+    <div class="modal modal-mobile-bar fade" id="fundraisingModal" aria-hidden="false" data-backdrop="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
+          <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/lightbox/fy18-fall-fundraising-lightbox.jpg" class="desktop"/>
           <div class="row">
-            <button type="button" class="close hidden-sm hidden-md hidden-lg" data-dismiss="modal" aria-label="Close" tabindex="-1">
-              <span aria-hidden="true">&times;</span>
+            <button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="close hidden-sm hidden-md hidden-lg close-button-x" data-dismiss="modal" aria-label="Close" tabindex="-1">
+              <i class="fa fa-times-circle-o" aria-hidden="true"></i>
             </button>
             <button type="button" class="close hidden-xs" data-dismiss="modal" aria-label="Close" tabindex="-1">
-              <img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png" />
+              <img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png">
             </button>
-          </div>
-          <div class="row">
-            <div class="modal-title">Get the Inside Scoop on Central Park!</div>
           </div>
         </div>
         <div class="modal-footer">
-          <div class="modal-sub-title">
-            Be the first to know what's going on in the Park, unearth Park secrets, get special offers, and more.
-          </div>
-          <div class="row sign-up-row">
-            <form novalidate="novalidate" id="lbox_register_form" name="lbox_register_form" method="post" action="javascript:void(0);">
-              <input id="cons_email" name="cons_email" placeholder="Your Email" type="text">
-              <input id="cons_zip_code" name="cons_zip_code" placeholder="Your ZIP Code" type="text">
-              <input value="true" name="cons_email_opt_in" type="hidden">
-              <input name="cons_info_component" value="true" type="hidden">
-              <input name="cons_mail_opt_in" value="true" type="hidden">
-              <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">
-              <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">
-              <input name="s_src" value="website" type="hidden">
-              <input name="s_subsrc" value="insider_lightbox_2015" type="hidden">
-              <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">
-              <input name="SURVEY_ID" value="4520" type="hidden">
-              <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">
-              <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">
-              <button class="btnSignUpLightbox clickable" id="formSubmit">
-                SIGN UP NOW
-              </button>
-            </form>
-            <div class="bottom-link hidden-sm hidden-md hidden-lg">
-              <div class="close bottom-link" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">Continue to CentralParkNYC.org</span>
-              </div>
+          <div class="modal-signup">
+            <div class="modal-title" id="fundraisingModal-title" style="text-transform: none;">Support Central Park today and your gift will be MATCHED!</div>
+            <div class="modal-sub-title" style="font-size: 19px;">
+              Make your tax-deductible gift by Dec. 31, and your donation will double thanks to a group of generous donors — up to $300,000!
+            </div>
+            <div class="row sign-up-row">
+              <form novalidate="novalidate" method="post" action="https://secure.centralparknyc.org/site/Donation2?df_id=6104&mfc_pref=T&6104.donation=form1&s_src=dsc17w&s_subsrc=web_lightbox_persist">
+                <button class="clickable" onclick="
+	                dataLayer.push({ 
+	                'eventCategory' : 'EOY 2017 Fundraising Lightbox', 
+	                'eventAction' : 'click', 
+	                'eventLabel' : 'Donate Now Button', 
+	                'eventValue' : undefined,
+	                'nonInteraction': false, 
+	                'event' : 'GAEvent'
+	              });">
+                  Donate Now
+                </button>
+              </form>
+              <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>
             </div>
           </div>
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div>
   <!--////////////////////////////// MODAL ENDS ///////////////////////////////////////// -->
 
   <div id="offcanvas-wrapper">

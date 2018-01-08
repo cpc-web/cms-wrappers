@@ -1725,8 +1725,8 @@
       });
       dataLayer.push({
           'eventCategory' : 'Sign Up Lightbox',
-          'eventAction' : 'Sign Up Lightbox',
-          'eventLabel' : thisDivID,
+          'eventAction' : 'display',
+          'eventLabel' : 'Sign Up Lightbox',
           'eventValue' : undefined,
           'nonInteraction': true,
           'event' : 'GAEvent'
@@ -1737,13 +1737,12 @@
   $('.btnSignUpLightbox').click(function(){
     dataLayer.push({
           'eventCategory' : 'Sign Up Lightbox',
-          'eventAction' : 'Sign Up Button',
-          'eventLabel' : thisDivID,
+          'eventAction' : 'click',
+          'eventLabel' : 'Sign Up Button',
           'eventValue' : undefined,
           'nonInteraction': false,
           'event' : 'GAEvent'
         });
-    }
   });
   
   $(function() {

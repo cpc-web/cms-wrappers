@@ -13,14 +13,17 @@
 
   <!-- Open Graph data -->
   <meta property="og:title" content="${title}" />
-  <meta property="og:type" content="webpage" />
+  <meta property="og:type" content="website" />
   <meta property="og:url" content="${url}" />
   <t:if test="large.length > 0"><t:list id="large"><meta property="og:image" content="${url}" /></t:list></t:if>
-  <t:else><meta property="og:image" content="http://www.centralparknyc.org/assets/images/support/support-main-image.jpg" /></t:else>
+  <t:else><t:if test="image.length > 0"><t:list id="image"><meta property="og:image" content="${url}" /></t:list></t:if>
+  <t:else><t:if test="thumb.length > 0"><t:list id="thumb"><meta property="og:image" content="${url}" /></t:list></t:if>
+  <t:else><meta property="og:image" content="http://www.centralparknyc.org/assets/images/support/support-main-image.jpg" /></t:else></t:else></t:else>
   <meta property="og:description" content="${description}" />
 
   <!-- Optimizely code -->
-  <script src="//cdn.optimizely.com/js/2131741199.js"></script>
+  <script src="https://cdn.optimizely.com/js/2131741199.js"></script>
+  <!--script src="//cdn.optimizely.com/js/2131741199.js"></script-->
   <script type="text/javascript">
     function submitOptimizelyEvent(optimizely_event_name) {
       window['optimizely'] = window['optimizely'] || [];
@@ -28,11 +31,74 @@
     }
   </script>
 
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){
+    w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })
+  (window,document,'script','dataLayer','GTM-T735RZ');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- One Signal -->
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "53f2953a-22e2-464f-b07a-04d5b1b858d9",
+      autoRegister: false, /* Set to true to automatically prompt visitors */
+      notifyButton: {
+          enable: true, /* Set to false to hide */
+          prenotify: true,
+          text: {
+            'tip.state.unsubscribed': 'Subscribe to notifications from Central Park!',
+            'tip.state.subscribed': "You're subscribed to notifications from Central Park!",
+            'tip.state.blocked': "You've blocked notifications from Central Park",
+            'message.prenotify': 'Click to subscribe to notifications from Central Park!',
+            'message.action.subscribed': "Thanks for subscribing!",
+            'message.action.resubscribed': "You're subscribed to notifications from Central Park!",
+            'message.action.unsubscribed': "You won't receive notifications from Central Park again.",
+            'dialog.main.title': 'Manage Site Notifications',
+            'dialog.main.button.subscribe': 'SUBSCRIBE',
+            'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
+            'dialog.blocked.title': 'Unblock Notifications',
+            'dialog.blocked.message': "Follow these instructions to allow notifications:"
+        },
+        displayPredicate: function() {
+            return OneSignal.isPushNotificationsEnabled()
+                .then(function(isPushEnabled) {
+                    /* The user is subscribed, so we want to return "false" to hide the notify button */
+                    return !isPushEnabled;
+                });
+        }
+      },
+      welcomeNotification: {
+        "title": "Central Park Conservancy",
+        "message": "Thanks for subscribing!",
+        // "url": "centralparknyc.org" /* Leave commented for the notification to not open a window on Chrome and Firefox (on Safari, it opens to your webpage) */
+    }
+    }]);
+  OneSignal.push(function() {
+    OneSignal.on('subscriptionChange', function(isSubscribed) {
+//    console.log("The user's subscription state is now:", isSubscribed);
+      dataLayer.push({
+        'desktopNotificationSubscribed': isSubscribed,
+        'event': 'desktopNotificationSubscriptionChange'
+      });
+    });
+  });
+  </script>
+<!-- End One Signal -->
+
+
   <!-- Styles for webfonts -->
   <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700|Oswald" rel="stylesheet">
 
   <!-- Main CSS output file from Sass consolidation -->
-  <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=1107160325">
+  <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0911170517">
 
   <!-- Bootstrap core JavaScript -->
   <script type='text/javascript' src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -56,32 +122,11 @@
       response_format: 'xml',
       path: {
         nonsecure: 'http://support.centralparknyc.org/site/',
-        secure: 'https://secure2.convio.net/cpc/site/'
+        secure: 'https://secure.centralparknyc.org/site/'
       }
       });
     });
   })(jQuery);
-  </script>
-  <!-- GA New Universal tracking Code -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-17339074-1', 'auto', {'allowLinker': true});
-    if (CONVIO.referrer.length > 0) { ga('set', 'referrer', CONVIO.referrer); }
-    ga('require', 'displayfeatures');
-    ga('require', 'linkid', 'linkid.js');
-
-    ga('require', 'linker');
-    ga('linker:autoLink', ['secure2.convio.net', 'centralparknyc.tumblr.com']);
-
-    // Optimizely Universal Analytics Integration
-    window.optimizely = window.optimizely || [];
-    window.optimizely.push("activateUniversalAnalytics");
-
-    ga('send', 'pageview');
   </script>
 
   <!-- new code for site-wide alert header -->
@@ -101,8 +146,11 @@
   </script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T735RZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-  <!--////////////////////////////// LIGHTBOX MODAL BEGINS ///////////////////////////////////////// -->
+<!--////////////////////////////// LIGHTBOX MODAL BEGINS ///////////////////////////////////////// -->
   <div class="modal fade" id="captureModal">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -153,6 +201,7 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
   <!--////////////////////////////// MODAL ENDS ///////////////////////////////////////// -->
+
   <div id="offcanvas-wrapper">
     <div id="site-canvas">
       <!--////////////////////////////// SITEWIDE ALERT BEGINS /////////////////////////////////////////
@@ -177,66 +226,322 @@
       <div class="mobile-menu" id="offcanvas-menu">
         <ul class="navbar-mobile-menu">
           <li class="">
-            <button class="join-renew-mobile" tabindex="-1"><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=membership&s_src=dfy17w&s_subsrc=web_nav_mobile_mem" tabindex="-1">Join or Renew</a>
+            <button class="join-renew-mobile" tabindex="-1"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_mobile_mem" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Join or Renew', 
+                'eventLabel' : 'Join or Renew', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Join or Renew</a>
             </button>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" id="visit-mobile" role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">Visit<i class="fa fa-caret-right" id="visit-mobile"></i><i class="fa fa-caret-down" id="visit-mobile"></i></a>
-            <ul class="dropdown-menu-mobile visit-mobile">
-              <li><a href="http://www.centralparknyc.org/visit/" tabindex="-1">Park Information</a></li>
-              <li><a href="http://www.centralparknyc.org/things-to-see-and-do/" tabindex="-1">Things to See and Do</a></li>
-              <li><a href="http://www.centralparknyc.org/events/" tabindex="-1">Calendar of Events</a></li>
-              <li><a href="http://www.centralparknyc.org/maps/" tabindex="-1">Maps</a></li>
-              <li><a href="http://www.centralparknyc.org/tours/" tabindex="-1">Tours</a></li>
-              <li><a href="http://www.centralparknyc.org/alerts/" tabindex="-1">Alerts & Closures</a></li>
-              <li><a href="http://www.centralparknyc.org/visit/places-to-eat.html" tabindex="-1">Eat</a></li>
-              <li><a href="http://www.centralparknyc.org/visit/restrooms.html" tabindex="-1">Restrooms</a></li>
-              <li><a href="http://www.centralparknyc.org/visit/visitor-centers.html" tabindex="-1">Visitor Centers</a></li>
-              <li><a href="http://www.centralparknyc.org/visit/park-history.html" tabindex="-1">Park History</a></li>
-              <li><a href="http://www.centralparknyc.org/visit/rules-and-regulations.html" tabindex="-1">Rules & Regulations</a></li>
-              <li><a href="http://www.centralparknyc.org/about/faq.html" tabindex="-1">FAQ</a></li>
+            <ul class="dropdown-menu-mobile visit-mobile"
+              <li><a href="http://www.centralparknyc.org/visit/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Visit', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Visit</a></li>
+              <li><a href="http://www.centralparknyc.org/things-to-see-and-do/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Things to See and Do', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Things to See and Do</a></li>
+              <li><a href="http://www.centralparknyc.org/events/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Calendar of Events', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Calendar of Events</a></li>
+              <li><a href="http://www.centralparknyc.org/maps/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Maps', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Maps</a></li>
+              <li><a href="http://www.centralparknyc.org/tours/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Tours', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Tours</a></li>
+              <li><a href="http://www.centralparknyc.org/visit/programs/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Programs', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Programs</a></li>
+              <li><a href="http://www.centralparknyc.org/alerts/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Alerts & Closures', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Alerts & Closures</a></li>
+              <li><a href="http://www.centralparknyc.org/visit/places-to-eat.html" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Eat', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Eat</a></li>
+              <li><a href="http://www.centralparknyc.org/visit/restrooms.html" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Restrooms', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Restrooms</a></li>
+              <li><a href="http://www.centralparknyc.org/visit/visitor-centers.html" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Visitor Centers', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Visitor Centers</a></li>
+              <li><a href="http://www.centralparknyc.org/visit/park-history.html" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Park History', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Park History</a></li>
+              <li><a href="http://www.centralparknyc.org/visit/rules-and-regulations.html" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'Rules', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Rules</a></li>
+              <li><a href="http://www.centralparknyc.org/about/faq.html" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Visit', 
+                'eventLabel' : 'FAQ', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">FAQ</a></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" id="about-mobile" role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">About the Conservancy<i class="fa fa-caret-right" id="about-mobile"></i><i class="fa fa-caret-down" id="about-mobile"></i></a>
             <ul class="dropdown-menu-mobile about-mobile">
-              <li><a href="http://www.centralparknyc.org/about/about-cpc/" tabindex="-1">Mission & History</a></li>
-              <li><a href="http://www.centralparknyc.org/about/programs/" tabindex="-1">Programs</a></li>
-              <li><a href="http://www.centralparknyc.org/about/management-board/" tabindex="-1">Management</a></li>
-              <li><a href="http://www.centralparknyc.org/about/about-cpc/governance-overview.html" tabindex="-1">Governance Overview</a></li>
-              <li><a href="http://www.centralparknyc.org/about/about-cpc/restoration.html" tabindex="-1">Restoration</a></li>
-              <li><a href="http://www.centralparknyc.org/about/programs/" tabindex="-1">Programs</a></li>
-              <li><a href="http://www.centralparknyc.org/about/institute/" tabindex="-1">Institute for Urban Parks</a></li>
-              <li><a href="http://www.centralparknyc.org/about/about-cpc/womens-committee/" tabindex="-1">Women's Committee</a></li>
-              <li><a href="http://www.centralparknyc.org/about/blog/" tabindex="-1">Blog</a></li>
-              <li><a href="http://www.centralparknyc.org/about/job-opportunities/" tabindex="-1">Jobs</a></li>
-              <li><a href="http://www.centralparknyc.org/about/contact-us.html" tabindex="-1">Contact Us</a></li>
+              <li><a href="http://www.centralparknyc.org/about/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'About', 
+                'eventLabel' : 'About the Conservancy', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">About the Conservancy</a></li>
+              <li><a href="http://www.centralparknyc.org/about/management-board/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'About', 
+                'eventLabel' : 'Management', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Management</a></li>
+              <li><a href="http://www.centralparknyc.org/about/financial-legal-information.html" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'About', 
+                'eventLabel' : 'Financial & Legal', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Financial & Legal</a></li>
+              <li><a href="https://restoration.centralparknyc.org" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'About', 
+                'eventLabel' : 'Restoration', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Restoration</a></li>
+              <li><a href="http://www.centralparknyc.org/about/institute/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'About', 
+                'eventLabel' : 'Institute for Urban Parks', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Institute for Urban Parks</a></li>
+              <li><a href="http://www.centralparknyc.org/about/about-cpc/womens-committee/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'About', 
+                'eventLabel' : 'Women\'s Committee', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Women's Committee</a></li>
+              <li><a href="http://www.centralparknyc.org/about/blog/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'About', 
+                'eventLabel' : 'Blog', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Blog</a></li>
+              <li><a href="http://www.centralparknyc.org/about/job-opportunities/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'About', 
+                'eventLabel' : 'Jobs', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Jobs</a></li>
+              <li><a href="http://www.centralparknyc.org/about/contact-us.html" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'About', 
+                'eventLabel' : 'Contact Us', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Contact Us</a></li>
             </ul>
           </li>
           <li class="shop">
-            <a href="http://www.centralparknyc.org/shop/" tabindex="-1">Shop</a>
+            <a href="http://www.centralparknyc.org/shop/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Shop', 
+                'eventLabel' : 'Shop', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Shop</a>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" id="support-mobile" role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">Support<i class="fa fa-caret-right" id="support-mobile"></i><i class="fa fa-caret-down" id="support-mobile"></i></a>
             <ul class="dropdown-menu-mobile support-mobile">
-              <li><a href="http://www.centralparknyc.org/support/" tabindex="-1">Support</a></li>
-              <li><a href="http://www.centralparknyc.org/support/forever-green.html" tabindex="-1">FOREVER GREEN</a></li>
-              <li><a href="http://www.centralparknyc.org/support/index.html#adopt" tabindex="-1">Adopt a Piece of the Park</a></li>
-              <li><a href="http://www.centralparknyc.org/support/benefit-events/" tabindex="-1">Benefit Events</a></li>
-              <li><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=donate&s_src=dfy17w&s_subsrc=web_nav_mobile_don" tabindex="-1">Donate</a></li>
-              <li><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=honor_memorial&s_src=hme17&s_subsrc=web_nav_mobile" tabindex="-1">Honor / Memorial</a></li>
-              <li><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=membership&s_src=dfy17w&s_subsrc=web_nav_mobile_mem" tabindex="-1">Join or Renew</a></li>
-              <li><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf17&s_subsrc=web_nav_mobile" tabindex="-1">Plant Flowers</a></li>
-              <li><a href="http://www.centralparknyc.org/support/volunteer/" tabindex="-1">Volunteer</a></li>
+              <li><a href="http://www.centralparknyc.org/support/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Support', 
+                'eventLabel' : 'Support', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Support</a></li>
+              <li><a href="http://www.centralparknyc.org/support/forever-green.html" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Support', 
+                'eventLabel' : 'Forever Green', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">FOREVER GREEN</a></li>
+              <li><a href="http://www.centralparknyc.org/support/index.html#adopt" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Support', 
+                'eventLabel' : 'Adopt a Piece of the Park', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Adopt a Piece of the Park</a></li>
+              <li><a href="http://www.centralparknyc.org/support/benefit-events/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Support', 
+                'eventLabel' : 'Benefit Events', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Benefit Events</a></li>
+              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=donate&s_src=dfy18w&s_subsrc=web_nav_mobile_don" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Support', 
+                'eventLabel' : 'Donate', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Donate</a></li>
+              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial&s_src=hme18&s_subsrc=web_nav_mobile" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Support', 
+                'eventLabel' : 'Honor / Memorial', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Honor / Memorial</a></li>
+              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_mobile_mem" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Support', 
+                'eventLabel' : 'Join or Renew', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Join or Renew</a></li>
+              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf18&s_subsrc=web_nav_mobile" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Support', 
+                'eventLabel' : 'Plant Flowers', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Plant Flowers</a></li>
+              <li><a href="http://www.centralparknyc.org/support/volunteer/" onclick="
+                dataLayer.push({ 
+                'eventCategory' : 'Navigation', 
+                'eventAction' : 'Support', 
+                'eventLabel' : 'Volunteer', 
+                'eventValue' : undefined,
+                'nonInteraction': false, 
+                'event' : 'GAEvent'
+              });" tabindex="-1">Volunteer</a></li>
             </ul>
           </li>
-          <li class="hor-line"></li>
-          <span class="small-text-mobile-menu">
-            <li><a href="http://www.centralparknyc.org/things-to-see-and-do/" tabindex="-1">Things to See and Do</a></li>
-            <li><a href="http://www.centralparknyc.org/events/" tabindex="-1">Events</a></li>
-            <li><a href="http://www.centralparknyc.org/about/faq.html" tabindex="-1">FAQ</a></li>
-            <li><a href="http://www.centralparknyc.org/about/contact-us.html" tabindex="-1">Contact Us</a></li>
-          </span>
         </ul>
       </div>
       <!--////////////////////////////// END MOBILE SLIDER /////////////////////////////////////// -->
@@ -310,53 +615,317 @@
           <div class="navbar-desktop ">
             <ul class="nav navbar-nav ">
               <li class="dropdown visit">
-                <a href="http://www.centralparknyc.org/visit/" class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">Visit</a>
+                <a href="http://www.centralparknyc.org/visit/" class="dropdown-toggle" role="button" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Visit', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" aria-haspopup="true" aria-expanded="false" tabindex="-1">Visit</a>
                 <ul class="dropdown-menu">
-                  <li><a href="http://www.centralparknyc.org/things-to-see-and-do/" tabindex="-1">Things to See and Do</a></li>
-                  <li><a href="http://www.centralparknyc.org/events/" tabindex="-1">Calendar of Events</a></li>
-                  <li><a href="http://www.centralparknyc.org/maps/" tabindex="-1">Maps</a></li>
-                  <li><a href="http://www.centralparknyc.org/tours/" tabindex="-1">Tours</a></li>
-                  <li><a href="http://www.centralparknyc.org/alerts/" tabindex="-1">Alerts & Closures</a></li>
-                  <li><a href="http://www.centralparknyc.org/visit/places-to-eat.html" tabindex="-1">Eat</a></li>
-                  <li><a href="http://www.centralparknyc.org/visit/restrooms.html" tabindex="-1">Restrooms</a></li>
-                  <li><a href="http://www.centralparknyc.org/visit/visitor-centers.html" tabindex="-1">Visitor Centers</a></li>
-                  <li><a href="http://www.centralparknyc.org/visit/park-history.html" tabindex="-1">Park History</a></li>
-                  <li><a href="http://www.centralparknyc.org/visit/rules-and-regulations.html" tabindex="-1">Rules & Regulations</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/faq.html" tabindex="-1">FAQ</a></li>
+                  <li><a href="http://www.centralparknyc.org/things-to-see-and-do/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Things to See and Do', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Things to See and Do</a></li>
+                  <li><a href="http://www.centralparknyc.org/events/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Calendar of Events', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Calendar of Events</a></li>
+                  <li><a href="http://www.centralparknyc.org/maps/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Maps', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Maps</a></li>
+                  <li><a href="http://www.centralparknyc.org/tours/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Tours', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Tours</a></li>
+                  <li><a href="http://www.centralparknyc.org/visit/programs/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Programs', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Programs</a></li>
+                  <li><a href="http://www.centralparknyc.org/alerts/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Alerts & Closures', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Alerts & Closures</a></li>
+                  <li><a href="http://www.centralparknyc.org/visit/places-to-eat.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Eat', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Eat</a></li>
+                  <li><a href="http://www.centralparknyc.org/visit/restrooms.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Restrooms', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Restrooms</a></li>
+                  <li><a href="http://www.centralparknyc.org/visit/visitor-centers.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Visitor Centers', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Visitor Centers</a></li>
+                  <li><a href="http://www.centralparknyc.org/visit/park-history.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Park History', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Park History</a></li>
+                  <li><a href="http://www.centralparknyc.org/visit/rules-and-regulations.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'Rules', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Rules</a></li>
+                  <li><a href="http://www.centralparknyc.org/about/faq.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Visit', 
+                    'eventLabel' : 'FAQ', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">FAQ</a></li>
                 </ul>
               </li>
               <li class="dropdown about">
-                <a href="http://www.centralparknyc.org/about/about-cpc/" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">About the Conservancy</a>
+                <a href="http://www.centralparknyc.org/about/" class="dropdown-toggle" role="button" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'About', 
+                    'eventLabel' : 'About the Conservancy', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" aria-haspopup="true" aria-expanded="false" tabindex="-1">About the Conservancy</a>
                 <ul class="dropdown-menu">
-                  <li><a href="http://www.centralparknyc.org/about/programs/" tabindex="-1">Programs</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/management-board/" tabindex="-1">Management</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/about-cpc/governance-overview.html" tabindex="-1">Governance Overview</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/about-cpc/restoration.html" tabindex="-1">Restoration</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/institute/" tabindex="-1">Institute for Urban Parks</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/about-cpc/womens-committee/" tabindex="-1">Women's Committee</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/blog/" tabindex="-1">Blog</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/job-opportunities/" tabindex="-1">Jobs</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/contact-us.html" tabindex="-1">Contact Us</a></li>
+                  <li><a href="http://www.centralparknyc.org/about/management-board/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'About', 
+                    'eventLabel' : 'Management', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Management</a></li>
+                  <li><a href="http://www.centralparknyc.org/about/financial-legal-information.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'About', 
+                    'eventLabel' : 'Financial & Legal', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Financial & Legal</a></li>
+                  <li><a href="https://restoration.centralparknyc.org"  onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'About', 
+                    'eventLabel' : 'Restoration', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Restoration</a></li>
+                  <li><a href="http://www.centralparknyc.org/about/institute/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'About', 
+                    'eventLabel' : 'Institute for Urban Parks', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Institute for Urban Parks</a></li>
+                  <li><a href="http://www.centralparknyc.org/about/about-cpc/womens-committee/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'About', 
+                    'eventLabel' : 'Women\'s Committee', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Women's Committee</a></li>
+                  <li><a href="http://www.centralparknyc.org/about/blog/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'About', 
+                    'eventLabel' : 'Blog', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Blog</a></li>
+                  <li><a href="http://www.centralparknyc.org/about/job-opportunities/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'About', 
+                    'eventLabel' : 'Jobs', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Jobs</a></li>
+                  <li><a href="http://www.centralparknyc.org/about/contact-us.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'About', 
+                    'eventLabel' : 'Contact Us', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Contact Us</a></li>
                 </ul>
               </li>
               <li class="shop">
-                <a href="http://www.centralparknyc.org/shop/" tabindex="-1">Shop</a>
+                <a href="http://www.centralparknyc.org/shop/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Shop', 
+                    'eventLabel' : 'Shop', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Shop</a>
               </li>
               <li class="dropdown support">
-                <a href="http://www.centralparknyc.org/support/" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">Support</a>
+                <a href="http://www.centralparknyc.org/support/" class="dropdown-toggle" role="button" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Support', 
+                    'eventLabel' : 'Support', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" aria-haspopup="true" aria-expanded="false" tabindex="-1">Support</a>
                 <ul class="dropdown-menu">
-                  <li><a href="http://www.centralparknyc.org/support/forever-green.html" tabindex="-1">FOREVER GREEN</a></li>
-                  <li><a href="http://www.centralparknyc.org/support/index.html#adopt" tabindex="-1">Adopt a Piece of the Park</a></li>
-                  <li><a href="http://www.centralparknyc.org/support/benefit-events/" tabindex="-1">Benefit Events</a></li>
-                  <li><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=donate&s_src=dfy17w&s_subsrc=web_nav_top_don" tabindex="-1">Donate</a></li>
-                  <li><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=honor_memorial&s_src=hme17&s_subsrc=web_nav_top" tabindex="-1">Honor / Memorial</a></li>
-                  <li><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=membership&s_src=dfy17w&s_subsrc=web_nav_top_mem" tabindex="-1">Join or Renew</a></li>
-                  <li><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf17&s_subsrc=web_nav_top" tabindex="-1">Plant Flowers</a></li>
-                  <li><a href="http://www.centralparknyc.org/support/volunteer/" tabindex="-1">Volunteer</a></li>
+                  <li><a href="http://www.centralparknyc.org/support/forever-green.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Support', 
+                    'eventLabel' : 'Forever Green', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">FOREVER GREEN</a></li>
+                  <li><a href="http://www.centralparknyc.org/support/index.html#adopt" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Support', 
+                    'eventLabel' : 'Adopt a Piece of the Park', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Adopt a Piece of the Park</a></li>
+                  <li><a href="http://www.centralparknyc.org/support/benefit-events/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Support', 
+                    'eventLabel' : 'Benefit Events', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Benefit Events</a></li>
+                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=donate&s_src=dfy18w&s_subsrc=web_nav_top_don" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Support', 
+                    'eventLabel' : 'Donate', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Donate</a></li>
+                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial&s_src=hme18&s_subsrc=web_nav_top" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Support', 
+                    'eventLabel' : 'Honor / Memorial', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Honor / Memorial</a></li>
+                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_top_mem" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Support', 
+                    'eventLabel' : 'Join or Renew', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Join or Renew</a></li>
+                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf18&s_subsrc=web_nav_top" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Support', 
+                    'eventLabel' : 'Plant Flowers', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Plant Flowers</a></li>
+                  <li><a href="http://www.centralparknyc.org/support/volunteer/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Support', 
+                    'eventLabel' : 'Volunteer', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Volunteer</a></li>
                 </ul>
               </li>
               <li class="donate-hp">
-                <a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=membership&s_src=dfy17w&s_subsrc=web_nav_menu_mem" tabindex="-1">Join or Renew</a>
+                <a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_menu_mem" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Join or Renew', 
+                    'eventLabel' : 'Join or Renew', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });" tabindex="-1">Join or Renew</a>
               </li>
               <li class="search-hp">
                 <i class="fa fa-search desktop-menu" id="submit"></i><span class="search-text-desktop">Search</span>
@@ -364,7 +933,6 @@
             </ul><!-- /.nav navbar-nav -->
           </div><!-- /.navbar-collapse -->
         <!--////////////////////////////// TOP NAVBAR ENDS /////////////////////////////////////// -->
-
         </nav>
 
         <!-- ////////////////////////////// SEARCH DROPDOWN BEGINS /////////////////////////////////////// -->
@@ -388,8 +956,8 @@
         <!-- ////////////////////////////// SEARCH DROPDOWN ENDS /////////////////////////////////////// -->
       </div>
       <!-- ////////////////////////////// END NAVIGATION CONTAINER /////////////////////////////////////// -->
-
-      <!-- ////////////////////////////// PAGE BELOW HEADER BEGINS /////////////////////////////////////// -->
+      
+	  <!-- ////////////////////////////// PAGE BELOW HEADER BEGINS /////////////////////////////////////// -->
       <!-- what is this? -->
       <div class="click-off-mobile-menu">
         <t:if test="title == 'Search Results' || matches(title, 'Send to Friend:.*')">
@@ -418,89 +986,378 @@
 
 
       <!--////////////////////////////// FOLLOW US BAR BEGINS /////////////////////////////////////// -->
-        <div class="row ">
-          <div class="container">
-            <div class="col-xs-12 followus hidden-xs">
-              <ul>
-                <li class="icon ">
-                  <a href="http://www.centralparknyc.org/about/blog/" target="_blank"><i class="fa  fa-social-bottom fa-rss-square"></i></a>
-                </li>
-                <li class="icon ">
-                  <a href="http://www.instagram.com/centralparknyc" target="_blank"><i class="fa fa-social-bottom fa-instagram"></i></a>
-                </li>
-                <li class="icon ">
-                  <a href="http://www.twitter.com/centralparknyc" target="_blank"><i class="fa  fa-social-bottom fa-twitter-square"></i></a>
-                </li>
-                <li class="icon">
-                  <a href="https://www.facebook.com/centralparknyc" target="_blank" ><i class="fa  fa-social-bottom  fa-facebook-square"></i></a>
-                </li>
-              </ul>
+          <div class="row ">
+            <div class="container">
+              <div class="col-xs-12 followus hidden-xs">
+                <ul>
+                  <li class="icon ">
+                    <a href="http://www.centralparknyc.org/about/blog/" target="_blank"><i class="fa  fa-social-bottom fa-rss-square"></i></a>
+                  </li>
+                  <li class="icon ">
+                    <a href="http://www.instagram.com/centralparknyc" target="_blank"><i class="fa fa-social-bottom fa-instagram"></i></a>
+                  </li>
+                  <li class="icon ">
+                    <a href="http://www.twitter.com/centralparknyc" target="_blank"><i class="fa  fa-social-bottom fa-twitter-square"></i></a>
+                  </li>
+                  <li class="icon">
+                    <a href="https://www.facebook.com/centralparknyc" target="_blank" ><i class="fa  fa-social-bottom  fa-facebook-square"></i></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- ////////////////////////////// FOLLOW US FOOTER BAR ENDS /////////////////////////////////////// -->
+          <!-- ////////////////////////////// FOLLOW US FOOTER BAR ENDS /////////////////////////////////////// -->
 
-        <!-- ////////////////////////////// FOOTER BAR BEGINS /////////////////////////////////////// -->
+          <!-- ////////////////////////////// FOOTER BAR BEGINS /////////////////////////////////////// -->
         <div class="container footer-container">
           <footer class="hidden-xs row">
             <div class="col-sm-3 hidden-xs">
               <a href="http://www.centralparknyc.org/" target="_blank"><img class="logo" src="http://support.centralparknyc.org/redesign/img/cpc/CPCwhitelogo.png" alt="Central Park Conservancy Logo"></a><br>
-              <p style="width:95%;">Central Park is managed and maintained by Central Park Conservancy under contract with the City of New York. Central Park Conservancy is a tax exempt 501(c)(3) not-for-profit organization.</p>
-              <p><strong>Central Park Conservancy</strong><br>14 East 60th St<br>New York, NY, 10022<br>212.310.6600<br><br>&copy;2015 Central Park Conservancy.<br>All Rights Reserved.<br/></p>
+              <p style="width:95%;">Central Park is managed and maintained by Central Park Conservancy under contract with the City of New York. Central Park Conservancy is a tax exempt 501(c)(3) nonprofit organization.</p>
+              <p><strong>Central Park Conservancy</strong><br>14 East 60th St<br>New York, NY, 10022<br>212.310.6600<br><br>&copy;2017 Central Park Conservancy. All Rights Reserved.<br/></p>
             </div>
             <div class="col-sm-9 hidden-xs">
               <div class="row">
                 <div class="col-sm-3">
-                  <a class="main" href="http://www.centralparknyc.org/about/">Visit</a>
+                  <a class="main" href="http://www.centralparknyc.org/visit/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Visit', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Visit</a>
                   <ul>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/things-to-see-and-do/">Things to See and Do</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/events/">Calendar of Events</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/maps">Maps</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/tours/">Tours</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/alerts">Alerts & Closures</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/places-to-eat.html" tabindex="-1">Eat</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/restrooms.html" tabindex="-1">Restrooms</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/visitor-centers.html" tabindex="-1">Visitor Centers</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/park-history.html">Park History</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/faq.html">FAQ</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/things-to-see-and-do/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Things to See and Do', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Things to See and Do</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/events/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Calendar of Events', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Calendar of Events</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/maps" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Maps', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Maps</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/tours/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Tours', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Tours</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/programs/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Programs', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Programs</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/alerts" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Alerts & Closures', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Alerts & Closures</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/places-to-eat.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Eat', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Eat</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/restrooms.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Restrooms', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Restrooms</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/visitor-centers.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Visitor Centers', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Visitor Centers</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/park-history.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Park History', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Park History</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/visit/rules-and-regulations.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Rules', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Rules</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/faq.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'FAQ', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">FAQ</a></li>
                   </ul>
                 </div>
                 <div class="footer-column col-sm-3">
-                  <a class="main" href="http://www.centralparknyc.org/about/about-cpc/">About the Conservancy</a>
+                  <a class="main" href="http://www.centralparknyc.org/about/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'About the Conservancy', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">About the Conservancy</a>
                   <ul>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/programs/">Programs</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/management-board/">Management</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/about-cpc/governance-overview.html">Governance Overview</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/about-cpc/restoration.html">Restoration</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/institute/">Institute</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/about-cpc/womens-committee/">Women's Committee</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/blog/">Blog</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/job-opportunities/">Jobs</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/contact-us.html">Contact Us</a></li>
-                  </ul>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/management-board/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Management', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Management</a></li>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/financial-legal-information.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Financial & Legal', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Financial & Legal</a></li>
+                      <li class="footer-sub-item"><a href="https://restoration.centralparknyc.org" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Restoration', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Restoration</a></li>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/institute/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Institute for Urban Parks', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Institute for Urban Parks</a></li>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/about-cpc/womens-committee/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Women\'s Committee', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Women's Committee</a></li>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/blog/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Blog', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Blog</a></li>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/job-opportunities/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Jobs', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Jobs</a></li>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/contact-us.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Contact Us', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Contact Us</a></li>
+                    </ul>
                 </div>
                 <div class="footer-column col-sm-3">
-                  <a class="main" href="http://www.centralparknyc.org/support/">Support</a>
+                  <a class="main" href="http://www.centralparknyc.org/support/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Support', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Support</a>
                   <ul>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/forever-green.html" tabindex="-1">FOREVER GREEN</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/index.html#adopt" tabindex="-1">Adopt a Piece of the Park</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/benefit-events/" tabindex="-1">Benefit Events</a></li>
-                    <li class="footer-sub-item"><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=donate&s_src=dfy17w&s_subsrc=web_nav_footer_don" tabindex="-1">Donate</a></li>
-                    <li class="footer-sub-item"><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=honor_memorial&s_src=hme17&s_subsrc=web_nav_footer" tabindex="-1">Honor / Memorial</a></li>
-                    <li class="footer-sub-item"><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=membership&s_src=dfy17w&s_subsrc=web_nav_footer_mem" tabindex="-1">Join or Renew</a></li>
-                    <li class="footer-sub-item"><a href="https://secure2.convio.net/cpc/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf17&s_subsrc=web_nav_footer">Plant Flowers</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/volunteer/" tabindex="-1">Volunteer</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/forever-green.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'FOREVER GREEN', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">FOREVER GREEN</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/index.html#adopt" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Adopt a Piece of the Park', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Adopt a Piece of the Park</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/benefit-events/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Benefit Events', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Benefit Events</a></li>
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=donate&s_src=dfy18w&s_subsrc=web_nav_footer_don" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Donate', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Donate</a></li>
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial&s_src=hme18&s_subsrc=web_nav_footer" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Honor / Memorial', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Honor / Memorial</a></li>
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_footer_mem" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Join or Renew', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Join or Renew</a></li>
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf18&s_subsrc=web_nav_footer" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Plant Flowers', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Plant Flowers</a></li>
+                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/volunteer/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Volunteer', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Volunteer</a></li>
                   </ul>
                 </div>
                 <div class="footerColumn col-sm-3">
                   <a class="main">Resources</a>
                   <ul>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/about-cpc/press.html">Press</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/corporate-giving/">Partners</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/about-cpc/privacy-policy.html">Privacy Policy</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/about-cpc/financial-legal-information.html">Financial and Legal</a></li>
-                    <li class="footer-sub-item"><a href="http://www.centralparknyc.org/shop/">Shop</a></li>
-                  </ul>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/press" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Press', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Press</a></li>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/support/corporate-giving/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Partners', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Partners</a></li>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/privacy-policy.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Privacy Policy', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Privacy Policy</a></li>
+                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/annual-reports.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Annual Reports', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Annual Reports</a></li>
+                      <li class="footer-sub-item"><a href="http://shop.centralparknyc.org/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Shop', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Shop</a></li>
+                    </ul>
                 </div>
               </div>
             </div>
@@ -514,13 +1371,53 @@
                       <img class="footer-logo-mobile" src="http://support.centralparknyc.org/redesign/img/cpc/CPCwhitelogo.png" alt="Central Park Conservancy Logo">
                     </li>
                     <li class="footer-link">Central Park is managed and maintained by Central Park Conservancy under contract with the City of New York.</li>
-                    <li class="footer-link"><a href="http://www.centralparknyc.org/about/">Visit</a></li>
-                    <li class="footer-link"><a href="http://www.centralparknyc.org/about/about-cpc/">About</a></li>
-                    <li class="footer-link"><a href="http://www.centralparknyc.org/shop/">Shop</a></li>
-                    <li class="footer-link"><a href="http://www.centralparknyc.org/support/">Support</a></li>
-                    <li class="footer-link"><a href="http://www.centralparknyc.org/about/contact-us.html">Contact Us</a></li>
+                    <li class="footer-link"><a href="http://www.centralparknyc.org/visit/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Visit', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Visit</a></li>
+                    <li class="footer-link"><a href="http://www.centralparknyc.org/about/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'About', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">About</a></li>
+                    <li class="footer-link"><a href="http://www.centralparknyc.org/shop/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Shop', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Shop</a></li>
+                    <li class="footer-link"><a href="http://www.centralparknyc.org/support/" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Support', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Support</a></li>
+                    <li class="footer-link"><a href="http://www.centralparknyc.org/about/contact-us.html" onclick="
+                    dataLayer.push({ 
+                    'eventCategory' : 'Navigation', 
+                    'eventAction' : 'Footer', 
+                    'eventLabel' : 'Contact Us', 
+                    'eventValue' : undefined,
+                    'nonInteraction': false, 
+                    'event' : 'GAEvent'
+                  });">Contact Us</a></li>
                     <p class="footerAddress">Central Park Conservancy, 14 E. 60th St <br/> New York, NY, 10022&nbsp;&nbsp;Phone: 212.310.6600<br/>
-                       &#169;2015, Central Park Conservancy. All Rights Reserved.</p>
+                       &#169;2017, Central Park Conservancy. All Rights Reserved.</p>
                   </ul>
                 </div>
               </div>
@@ -529,7 +1426,7 @@
         </div>
         <!-- ////////////////////////////// FOOTER BAR ENDS /////////////////////////////////////// -->
 
-        <!-- ////////////////////////////// "STAR BAR" BEGINS /////////////////////////////////////// -->
+		<!-- ////////////////////////////// "STAR BAR" BEGINS /////////////////////////////////////// -->
         <div class="star-bar">
           <a target="_blank" href="http://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=3462#.VIhclzHF9ZA">
             <img src="https://secure2.convio.net/cpc/images/content/pagebuilder/4star88x31.gif" alt="Charity Navigator logo" width="88" height="31" />
@@ -537,15 +1434,15 @@
           <a href="http://www.guidestar.org/organizations/13-3022855/central-park-conservancy.aspx" target="_blank">
             <img src="http://widgets.guidestar.org/gximage2?o=6913470&l=v4" alt="Guidestar Logo"/>
           </a>
-          <a target="_blank" href="http://search.newyork.bbb.org/reports.aspx?action=search2&page=0&cid=235&Name=central">
-            <img src="http://support.centralparknyc.org/images/content/pagebuilder/bbb-color.png" alt="BBB Logo" width="86px" />
-          </a>
+          <a title="Central Park Conservancy BBB Charity Seal" href="https://www.bbb.org/new-york-city/charity-reviews/charity-environment/central-park-conservancy-in-new-york-ny-153265/#sealclick"><img alt="Central Park Conservancy BBB Charity Seal" style="border: 0;" src="https://seal-newyork.bbb.org/charity-seals/hor-100-38/central-park-conservancy-153265.png" /></a>
+          <!--<a title="Central Park Conservancy BBB Charity Seal" href="http://www.bbb.org/new-york-city/charity-reviews/charity-environment/central-park-conservancy-in-new-york-ny-153265/#sealclick" target="_blank"><img alt="Central Park Conservancy BBB Charity Seal" style="border: 0;" src="http://seal-newyork.bbb.org/charity-seals/hor-100-38/central-park-conservancy-153265.png" /></a>-->
         </div>
         <!-- ////////////////////////////// "STAR BAR" ENDS /////////////////////////////////////// -->
       </div><!-- /.click-off-mobile-menu -->
     </div><!-- /#site-canvas -->
   </div><!-- /#offcanvas-wrapper -->
 </body>
+
 
 <script>
 (function($){
@@ -623,24 +1520,26 @@
 
 })(jQuery);
 
-
 // begin scripts for email capture lightbox
 
 (function($){
 
   var OPLB;
   var html = '';
-
+  
   // Create HTML
-  html += '<div class="modal fade" id="OPLB-fall-guide" aria-hidden="false">';
+  html += '<div class="modal modal-mobile-bar fade" id="OPLB-seasonal-guide" aria-hidden="false" data-backdrop="true">';
   html += '  <div class="modal-dialog">';
   html += '    <div class="modal-content">';
   html += '      <div class="modal-header">';
   html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge.jpg" class="desktop"/>';
   html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge-mobile.jpg" class="mobile"/>';
   html += '        <div class="row">';
+  html += '          <button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">';
+  html += '            <i class="fa fa-caret-up" aria-hidden="true"></i>';
+  html += '          </button>';
   html += '          <button type="button" class="close hidden-sm hidden-md hidden-lg close-button-x" data-dismiss="modal" aria-label="Close" tabindex="-1">';
-  html += '            <span aria-hidden="true">x</span>';
+  html += '            <i class="fa fa-times-circle-o" aria-hidden="true"></i>';
   html += '          </button>';
   html += '          <button type="button" class="close hidden-xs" data-dismiss="modal" aria-label="Close" tabindex="-1">';
   html += '            <img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png">';
@@ -676,8 +1575,7 @@
   html += '        </div>';
   html += '        <div class="modal-thanks">';
   html += '          <div class="row thank-you-row">';
-  html += '            <p class="lede">Thank you for signing up for the Fall Guide!</p>';
-  html += '            <p>Check your inbox for a link to the guide, or <a href="http://www.centralparknyc.org/assets/pdfs/guides/Fall-Guide-2016.pdf" target="_blank" class="lb-fall-guide-link">download it by clicking here</a>.</p>';
+  html += '            <p class="lede">Thanks for signing up!</p>';
   html += '          </div>';
   html += '          <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
   html += '        </div>';
@@ -686,7 +1584,7 @@
   html += '  </div>';
   html += '</div>';
 
-  OPLB = {
+    OPLB = {
     el: $(html),
     parent: $('body'),
     form: $('#OPLB_form'),
@@ -757,19 +1655,16 @@
       });
     },
     _bindEvents: function() {
-      $('#OPLB-fall-guide #OPLB_submit').click(function(e) {
+      $('#OPLB-seasonal-guide #OPLB_submit').click(function(e) {
         e.preventDefault() && e.preventDefault;
         OPLB.submit();
         return false;
       });
-      $('#OPLB-fall-guide #cons_zip_code').keypress(function(e) {
+      $('#OPLB-seasonal-guide #cons_zip_code').keypress(function(e) {
         if (e.which == 13) {
           OPLB.submit();
         }
       });
-      // $('.lb-fall-guide-link').click(function(){
-      //  ga('send', 'event', 'Fall Guide Lightbox', 'click', 'Download Fall Guide PDF', {'nonInteraction': 1});
-     // });
     },
     init: function() {
       // Load validation library, if necessary.
@@ -801,7 +1696,7 @@
           requiresAuth: 'true',
           callback: function(data){
             if (data.submitSurveyResponse.success == 'true') {
-              OPLB.util.setCookie("cpc-2016", "success", 365);
+              OPLB.util.setCookie("cpc-2016", "success", 1);
               OPLB.util.submitOptimizelyEvent('email_signup_lightbox');
               ga('send', 'event', 'Email Sign-up', 'Email Sign-up', 'fall_guide_lightbox');
               // Show thank you.
@@ -828,62 +1723,117 @@
           OPLB.util.setCookie('cpc-2016', 'close', 30);
         }
       });
-      ga('send', 'event', 'Sign Up Lightbox', 'display', 'Sign Up Lightbox', {'nonInteraction': 1});
+      dataLayer.push({
+          'eventCategory' : 'Sign Up Lightbox',
+          'eventAction' : 'Sign Up Lightbox',
+          'eventLabel' : thisDivID,
+          'eventValue' : undefined,
+          'nonInteraction': true,
+          'event' : 'GAEvent'
+        });
     }
   };
 
   $('.btnSignUpLightbox').click(function(){
-    ga('send', 'event', 'Sign Up Lightbox', 'click', 'Sign Up Button', {'nonInteraction': 0});
+    dataLayer.push({
+          'eventCategory' : 'Sign Up Lightbox',
+          'eventAction' : 'Sign Up Button',
+          'eventLabel' : thisDivID,
+          'eventValue' : undefined,
+          'nonInteraction': false,
+          'event' : 'GAEvent'
+        });
+    }
   });
-
+  
   $(function() {
     OPLB.init();
+    //expand the mobile lightbox to full screen when you click on it
+    $('#expand-modal').click(function(){
+      $(this).hide();
+      $('#expand-modal .fa').hide();
+      $('#OPLB-seasonal-guide').removeClass("modal-mobile-bar");
+      $('#OPLB-seasonal-guide').addClass("modal-mobile-expand");
+      $('.modal-sub-title').css("visibility", "visible");
+    });
+    $('.modal-mobile-bar .modal-title').click(function(){
+      $('#expand-modal').hide();
+      $('#expand-modal .fa').hide();
+      $('#OPLB-seasonal-guide').removeClass("modal-mobile-bar");
+      $('#OPLB-seasonal-guide').addClass("modal-mobile-expand");
+      $('.modal-sub-title').css("visibility", "visible");
+    });
+    //make sure the mobile lightbox closes when you click outside of it
+    /*$(document).on('click touchstart', function(event) {
+      if(!$(event.target).closest('#OPLB-seasonal-guide').length) {
+        if($('#OPLB-seasonal-guide').is(":visible")) {
+          $('#OPLB-seasonal-guide').modal('hide');
+        }
+      }
+    })*/
   });
 })(jQuery);
-
-// $('.lb-fall-guide-link').click(function(){
-//  ga('send', 'event', 'Fall Guide Lightbox', 'click', 'Download Fall Guide PDF', {'nonInteraction': 0});
-// });
 
 // end scripts for email capture lightbox
 
 var urlFull = document.location.href;
 
 function submitEmail(thisDivID) {
-  (function($){
-    var myEmail = $('form.'+thisDivID+' input.primaryEmail').val();
-    $('input.primaryEmail').val(myEmail);
-    var myForm = $('form.'+thisDivID+'');
-    var myData = 'method=submitSurvey&survey_id=2621';
-    luminateExtend.api({
-      api: 'survey',
-      requestType: 'POST',
-      data: myData,
-      form: myForm,
-      requiresAuth: 'true',
-      callback: function(data){
-        var successVar = (data.submitSurveyResponse) ? data.submitSurveyResponse.success : '';
-        var errorVar = (data.errorResponse) ? data.errorResponse.code : '';
-        if(successVar == 'true') {
-          var submitOpt = 'email_signup_'+thisDivID;
-          submitOptimizelyEvent(submitOpt);
-          $('.primaryEmail').hide();
-          $('.submitButton').hide();
-          $('.noteBox').show().html('<div id="thanksBox">Thank you! To complete your profile, visit our <a href="http://www.centralparknyc.org/cpc-registration.html?show=all" onClick="ga(\'send\', \'event\', \'Link\', \'Click\', \'Tell Us More - EmailWide\', { \'hitCallback\': function() { document.location = \'http://www.centralparknyc.org/cpc-registration.html?show=all\'; }}); return false;">Registration Page.</a></div>');
-          ga('send', 'event', 'Email Sign-up', 'Email Sign-up', thisDivID);
+(function($){
+  var myEmail = $('#'+thisDivID+' form input.primaryEmail').val();
+  $('input.primaryEmail').val(myEmail);
+  var myForm = $('#'+thisDivID+' form');
+  var myData = 'method=submitSurvey&survey_id=2621';
+  luminateExtend.api({
+    api: 'survey',
+    requestType: 'POST',
+    data: myData,
+    form: myForm,
+    requiresAuth: 'true',
+    callback: function(data){
+      var successVar = (data.submitSurveyResponse) ? data.submitSurveyResponse.success : '';
+      var errorVar = (data.errorResponse) ? data.errorResponse.code : '';
+      if(successVar == 'true') {
+        var submitOpt = 'email_signup_'+thisDivID;
+        submitOptimizelyEvent(submitOpt);
+        $('.primaryEmail').hide();
+        $('.submitButton').hide();
+        $('.noteBox').show().html('<div id="thanksBox">Thank you! To complete your profile, visit our <a href="http://www.centralparknyc.org/cpc-registration.html?show=all" onClick="dataLayer.push({\'eventCategory\' : \'Link\', \'eventAction\' : \'Click\', \'eventLabel\' : \'Tell Us More - EmailWide\', \'eventValue\' : undefined, \'nonInteraction\': false, \'event\' : \'GAEvent\'});">Registration Page.</a></div>');
+        dataLayer.push({
+          'eventCategory' : 'Email Sign-up',
+          'eventAction' : 'Email Sign-up',
+          'eventLabel' : thisDivID,
+          'eventValue' : undefined,
+          'nonInteraction': false,
+          'event' : 'GAEvent'
+        });
+      } else {
+        if (errorVar == '1734') {
+          var s8 = $('#s8').text();
+          $('.noteBox').show().html('<p style="color: #F00">This email address already exists; please <a href="http://support.centralparknyc.org/site/UserLogin?NEXTURL='+s8+'">log in</a> to continue.</p>');
+          dataLayer.push({
+            'eventCategory' : 'Email Sign-up',
+            'eventAction' : 'Duplicate Sign-up',
+            'eventLabel' : thisDivID,
+            'eventValue' : undefined,
+            'nonInteraction': false,
+            'event' : 'GAEvent'
+          });
         } else {
-          if (errorVar == '1734') {
-            var s8 = $('#s8').text();
-            $('.noteBox').show().html('<p style="color: #F00">This email address already exists; please <a href="http://support.centralparknyc.org/site/UserLogin?NEXTURL='+s8+'">log in</a> to continue.</p>');
-            ga('send', 'event', 'Email Sign-up', 'Duplicate Sign-up', thisDivID);
-          } else {
-            $('.noteBox').show().html('<p style="color: #F00">'+data.submitSurveyResponse.errors.errorMessage+'</p>');
-            ga('send', 'event', 'Email Sign-up', 'Failed Sign-up', thisDivID);
-          }
+          $('.noteBox').show().html('<p style="color: #F00">'+data.submitSurveyResponse.errors.errorMessage+'</p>');
+          dataLayer.push({
+            'eventCategory' : 'Email Sign-up',
+            'eventAction' : 'Failed Sign-up',
+            'eventLabel' : thisDivID,
+            'eventValue' : undefined,
+            'nonInteraction': false,
+            'event' : 'GAEvent'
+          });
         }
       }
-    });
-  })(jQuery);
+    }
+  });
+})(jQuery);
 }
 
 (function($){
@@ -916,5 +1866,4 @@ function submitEmail(thisDivID) {
   });
 })(jQuery);
 </script>
-
 </html>

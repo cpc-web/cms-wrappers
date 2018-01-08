@@ -13,7 +13,7 @@
 
   <!-- Open Graph data -->
   <meta property="og:title" content="${title}" />
-  <meta property="og:type" content="webpage" />
+  <meta property="og:type" content="website" />
   <meta property="og:url" content="${url}" />
   <t:if test="large.length > 0"><t:list id="large"><meta property="og:image" content="${url}" /></t:list></t:if>
   <t:else><t:if test="image.length > 0"><t:list id="image"><meta property="og:image" content="${url}" /></t:list></t:if>
@@ -22,7 +22,8 @@
   <meta property="og:description" content="${description}" />
 
   <!-- Optimizely code -->
-  <script src="//cdn.optimizely.com/js/2131741199.js"></script>
+  <script src="https://cdn.optimizely.com/js/2131741199.js"></script>
+  <!--script src="//cdn.optimizely.com/js/2131741199.js"></script-->
   <script type="text/javascript">
     function submitOptimizelyEvent(optimizely_event_name) {
       window['optimizely'] = window['optimizely'] || [];
@@ -163,12 +164,12 @@
             </button>
           </div>
           <div class="row">
-            <div class="modal-title">YOUR FREE CENTRAL PARK FALL GUIDE</div>
+            <div class="modal-title">Get the Inside Scoop on Central Park!</div>
           </div>
         </div>
         <div class="modal-footer">
           <div class="modal-sub-title">
-            Make the most of autumn in Central Park! This free guide features our official fall foliage map, upcoming programs and events, family-friendly ways to explore the Park, and more.
+            Be the first to know what's going on in the Park, unearth Park secrets, get special offers, and more.
           </div>
           <div class="row sign-up-row">
             <form novalidate="novalidate" id="lbox_register_form" name="lbox_register_form" method="post" action="javascript:void(0);">
@@ -180,13 +181,13 @@
               <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">
               <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">
               <input name="s_src" value="website" type="hidden">
-              <input name="s_subsrc" value="201709_seasonal" type="hidden">
+              <input name="s_subsrc" value="insider_lightbox_2015" type="hidden">
               <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">
-              <input name="SURVEY_ID" value="7166" type="hidden">
+              <input name="SURVEY_ID" value="4520" type="hidden">
               <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">
               <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">
               <button class="btnSignUpLightbox clickable" id="formSubmit">
-                GET THE GUIDE
+                SIGN UP NOW
               </button>
             </form>
             <div class="bottom-link hidden-sm hidden-md hidden-lg">
@@ -200,6 +201,7 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
   <!--////////////////////////////// MODAL ENDS ///////////////////////////////////////// -->
+
   <div id="offcanvas-wrapper">
     <div id="site-canvas">
       <!--////////////////////////////// SITEWIDE ALERT BEGINS /////////////////////////////////////////
@@ -387,7 +389,7 @@
                 'nonInteraction': false, 
                 'event' : 'GAEvent'
               });" tabindex="-1">Financial & Legal</a></li>
-              <li><a href="http://www.centralparknyc.org/about/restoration.html" onclick="
+              <li><a href="https://restoration.centralparknyc.org" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'About', 
@@ -409,7 +411,7 @@
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'About', 
-                'eventLabel' : 'Women's Committee', 
+                'eventLabel' : 'Women\'s Committee', 
                 'eventValue' : undefined,
                 'nonInteraction': false, 
                 'event' : 'GAEvent'
@@ -762,7 +764,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });" tabindex="-1">Financial & Legal</a></li>
-                  <li><a href="http://www.centralparknyc.org/about/restoration.html"  onclick="
+                  <li><a href="https://restoration.centralparknyc.org"  onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'About', 
@@ -784,7 +786,7 @@
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'About', 
-                    'eventLabel' : 'Women's Committee', 
+                    'eventLabel' : 'Women\'s Committee', 
                     'eventValue' : undefined,
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
@@ -954,8 +956,8 @@
         <!-- ////////////////////////////// SEARCH DROPDOWN ENDS /////////////////////////////////////// -->
       </div>
       <!-- ////////////////////////////// END NAVIGATION CONTAINER /////////////////////////////////////// -->
-
-      <!-- ////////////////////////////// PAGE BELOW HEADER BEGINS /////////////////////////////////////// -->
+      
+	  <!-- ////////////////////////////// PAGE BELOW HEADER BEGINS /////////////////////////////////////// -->
       <!-- what is this? -->
       <div class="click-off-mobile-menu">
         <t:if test="title == 'Search Results' || matches(title, 'Send to Friend:.*')">
@@ -984,29 +986,29 @@
 
 
       <!--////////////////////////////// FOLLOW US BAR BEGINS /////////////////////////////////////// -->
-        <div class="row ">
-          <div class="container">
-            <div class="col-xs-12 followus hidden-xs">
-              <ul>
-                <li class="icon ">
-                  <a href="http://www.centralparknyc.org/about/blog/" target="_blank"><i class="fa  fa-social-bottom fa-rss-square"></i></a>
-                </li>
-                <li class="icon ">
-                  <a href="http://www.instagram.com/centralparknyc" target="_blank"><i class="fa fa-social-bottom fa-instagram"></i></a>
-                </li>
-                <li class="icon ">
-                  <a href="http://www.twitter.com/centralparknyc" target="_blank"><i class="fa  fa-social-bottom fa-twitter-square"></i></a>
-                </li>
-                <li class="icon">
-                  <a href="https://www.facebook.com/centralparknyc" target="_blank" ><i class="fa  fa-social-bottom  fa-facebook-square"></i></a>
-                </li>
-              </ul>
+          <div class="row ">
+            <div class="container">
+              <div class="col-xs-12 followus hidden-xs">
+                <ul>
+                  <li class="icon ">
+                    <a href="http://www.centralparknyc.org/about/blog/" target="_blank"><i class="fa  fa-social-bottom fa-rss-square"></i></a>
+                  </li>
+                  <li class="icon ">
+                    <a href="http://www.instagram.com/centralparknyc" target="_blank"><i class="fa fa-social-bottom fa-instagram"></i></a>
+                  </li>
+                  <li class="icon ">
+                    <a href="http://www.twitter.com/centralparknyc" target="_blank"><i class="fa  fa-social-bottom fa-twitter-square"></i></a>
+                  </li>
+                  <li class="icon">
+                    <a href="https://www.facebook.com/centralparknyc" target="_blank" ><i class="fa  fa-social-bottom  fa-facebook-square"></i></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- ////////////////////////////// FOLLOW US FOOTER BAR ENDS /////////////////////////////////////// -->
+          <!-- ////////////////////////////// FOLLOW US FOOTER BAR ENDS /////////////////////////////////////// -->
 
-                <!-- ////////////////////////////// FOOTER BAR BEGINS /////////////////////////////////////// -->
+          <!-- ////////////////////////////// FOOTER BAR BEGINS /////////////////////////////////////// -->
         <div class="container footer-container">
           <footer class="hidden-xs row">
             <div class="col-sm-3 hidden-xs">
@@ -1166,7 +1168,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });">Financial & Legal</a></li>
-                      <li class="footer-sub-item"><a href="http://www.centralparknyc.org/about/restoration.html" onclick="
+                      <li class="footer-sub-item"><a href="https://restoration.centralparknyc.org" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Footer', 
@@ -1424,7 +1426,7 @@
         </div>
         <!-- ////////////////////////////// FOOTER BAR ENDS /////////////////////////////////////// -->
 
-        <!-- ////////////////////////////// "STAR BAR" BEGINS /////////////////////////////////////// -->
+		<!-- ////////////////////////////// "STAR BAR" BEGINS /////////////////////////////////////// -->
         <div class="star-bar">
           <a target="_blank" href="http://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=3462#.VIhclzHF9ZA">
             <img src="https://secure2.convio.net/cpc/images/content/pagebuilder/4star88x31.gif" alt="Charity Navigator logo" width="88" height="31" />
@@ -1440,6 +1442,8 @@
     </div><!-- /#site-canvas -->
   </div><!-- /#offcanvas-wrapper -->
 </body>
+
+
 <script>
 (function($){
 
@@ -1517,19 +1521,19 @@
 })(jQuery);
 
 // begin scripts for email capture lightbox
-// new version of confirmation page added 9/14/17, M+R
+
 (function($){
-console.log('v2');
+
   var OPLB;
   var html = '';
-
+  
   // Create HTML
   html += '<div class="modal modal-mobile-bar fade" id="OPLB-seasonal-guide" aria-hidden="false" data-backdrop="true">';
   html += '  <div class="modal-dialog">';
   html += '    <div class="modal-content">';
   html += '      <div class="modal-header">';
-  html += '      <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/email-assets/fall-guide-2017/fallGuide2017-lightbox.jpg" class="desktop"/>';
-  html += '      <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/email-assets/fall-guide-2017/fallGuide2017-lightbox.jpg" class="mobile"/>';
+  html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge.jpg" class="desktop"/>';
+  html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge-mobile.jpg" class="mobile"/>';
   html += '        <div class="row">';
   html += '          <button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">';
   html += '            <i class="fa fa-caret-up" aria-hidden="true"></i>';
@@ -1544,9 +1548,9 @@ console.log('v2');
   html += '      </div>';
   html += '      <div class="modal-footer">';
   html += '        <div class="modal-signup">';
-  html += '          <div class="modal-title">YOUR FREE CENTRAL PARK FALL GUIDE</span></div>';
+  html += '          <div class="modal-title">Get the inside scoop on Central Park!</div>';
   html += '          <div class="modal-sub-title">';
-  html += '            Make the most of autumn in Central Park! This free guide features our official fall foliage map, upcoming programs and events, family-friendly ways to explore the Park, and more.';
+  html += '            Be the first to know what\'s going on in the Park, unearth Park secrets, get special offers, and more.';
   html += '          </div>';
   html += '          <div class="row sign-up-row">';
   html += '            <form novalidate="novalidate" id="OPLB_form" name="lbox_register_form" method="post" action="javascript:void(0);">';
@@ -1556,60 +1560,31 @@ console.log('v2');
   html += '              <input name="cons_mail_opt_in" value="true" type="hidden">';
   html += '              <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">';
   html += '              <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">';
-  html += '              <input name="s_src" value="201709_seasonal" type="hidden">';
+  html += '              <input name="s_src" value="website" type="hidden">';
   html += '              <input name="s_subsrc" value="lightbox" type="hidden">';
   html += '              <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">';
-  html += '              <input name="SURVEY_ID" value="7166" type="hidden">';
+  html += '              <input name="SURVEY_ID" value="4520" type="hidden">';
   html += '              <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">';
   html += '              <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">';
   html += '              <button class="btnSignUpLightbox clickable" id="OPLB_submit">';
-  html += '                Get the Guide';
+  html += '                Sign Up Now';
   html += '              </button>  ';
   html += '            </form>';
   html += '            <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
   html += '          </div>  ';
   html += '        </div>';
-  html += '        <div class="modal-thanks modal-thanks-survey">';
-  html += '         <div class="row thank-you-row">';
-  html += '           <p class="lede">Thanks!</p>';
-  html += '           <p class="hide-on-mobile">Our Fall Guide is on its way to your inbox.</p>';
-  html += '           <p>Before you go, our Conservancy staff would love to know — <strong>which of the following ways do you use Central Park?</strong> <span class="hide-on-mobile">Pick as many options as you\'d like.</span></p>';
-  html += '           <form method="POST" action="http://support.centralparknyc.org/site/Survey">';
-  html += '             <input type="hidden" name="method" value="submitSurvey" />';
-  html += '             <input type="hidden" name="cons_email" value="" size="45" maxlength="255" />';
-  html += '               <ul>';
-  html += '                 <li>';
-  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_4" class="checkbox" value="1309"  />';
-  html += '                   <label for="1872_7027_2_9663_4" class="wrapable">Playing with your family</label>';
-  html += '                 </li>';
-  html += '                 <li>';
-  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_5" class="checkbox" value="1221"  />';
-  html += '                   <label for="1872_7027_2_9663_5" class="wrapable">Walking your dog</label>';
-  html += '                 </li>';
-  html += '                 <li>';
-  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_1" class="checkbox" value="1781"  />';
-  html += '                   <label for="1872_7027_2_9663_1" class="wrapable">Attending tours &amp; events</label>';
-  html += '                 </li>';
-  html += '                 <li>';
-  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_2" class="checkbox" value="1081"  />';
-  html += '                   <label for="1872_7027_2_9663_2" class="wrapable">Fitness or sports</label>';
-  html += '                 </li>';
-  html += '               </ul>';
-  html += '               <input type="hidden" name="denySubmit" id="denySubmit" value="" />';
-  html += '               <input type="submit" name="ACTION_SUBMIT_SURVEY_RESPONSE" id="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit" class="btn" />';
-  html += '               <input type="hidden" name="survey_id" value="7027" />';
-  html += '             </form>';
-  html += '             <button type="button" data-dismiss="modal" aria-label="Close" tabindex="-1">';
-  html += '               None of the above';
-  html += '             </button>';
+  html += '        <div class="modal-thanks">';
+  html += '          <div class="row thank-you-row">';
+  html += '            <p class="lede">Thanks for signing up!</p>';
   html += '          </div>';
+  html += '          <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
   html += '        </div>';
   html += '      </div>';
   html += '    </div>';
   html += '  </div>';
   html += '</div>';
 
-  OPLB = {
+    OPLB = {
     el: $(html),
     parent: $('body'),
     form: $('#OPLB_form'),
@@ -1666,7 +1641,7 @@ console.log('v2');
         console.log('Validation library is being loaded.');
         $.getScript('http://cpc.convio.net/js/jquery.validate.min.js');
       } else {
-        //console.log('Validation library is already loaded.');
+        console.log('Validation library is already loaded.');
       }
     },
     _bindValidation: function() {
@@ -1690,9 +1665,6 @@ console.log('v2');
           OPLB.submit();
         }
       });
-      $('.lb-seasonal-guide-link').click(function(){
-        ga('send', 'event', 'Fall Guide Lightbox', 'click', 'Download Fall Guide PDF', {'nonInteraction': 1});
-      });
     },
     init: function() {
       // Load validation library, if necessary.
@@ -1713,7 +1685,7 @@ console.log('v2');
       var valid = OPLB._isValid();
 
       if (valid) {
-        var data = 'method=submitSurvey&survey_id=7166';
+        var data = 'method=submitSurvey&survey_id=4520';
         var form = $('#OPLB_form');
         $('.btnSignUpLightbox').css('visibility', 'hidden');
         luminateExtend.api({
@@ -1724,13 +1696,13 @@ console.log('v2');
           requiresAuth: 'true',
           callback: function(data){
             if (data.submitSurveyResponse.success == 'true') {
-              OPLB.util.setCookie("cpc-2016", "success", 365);
+              OPLB.util.setCookie("cpc-2016", "success", 1);
               OPLB.util.submitOptimizelyEvent('email_signup_lightbox');
               ga('send', 'event', 'Email Sign-up', 'Email Sign-up', 'fall_guide_lightbox');
               // Show thank you.
-              OPLB.showThanks();
+              // OPLB.showThanks();
               // Hide lightbox.
-              //OPLB.el.modal('hide');
+              OPLB.el.modal('hide');
               OPLB.submitted = true;
             } else {
               console.log('Error submitting form: ' + data.submitSurveyResponse.errors.errorMessage);
@@ -1741,40 +1713,8 @@ console.log('v2');
       }
     },
     showThanks: function() {
-
-      OPLB.el.addClass( 'modal-survey-ask' );
-
-      // pull in email from last stop
-      OPLB.el.find( '.modal-thanks input[name="cons_email"]' ).val( OPLB.el.find( '.modal-signup input[name="cons_email"]' ).val() );
-
-      // hide signup and show TY content
-      OPLB.el.find( '.modal-signup' ).hide();
-      OPLB.el.find( '.modal-header > img' ).hide();
-      OPLB.el.find( '.modal-thanks' ).show();
-
-      OPLB.el.find( '.modal-thanks form' ).on( 'submit', function( event ) {
-        event.preventDefault();
-
-        // remove values for an unchecked interests so that
-        // users are not automatically opted-out
-        $( this ).find( 'input[type="checkbox"]' ).not( ':checked' )
-          .val( ' ' )
-          .attr( 'name', ' ' );
-
-        luminateExtend.api({
-          api: 'survey',
-          requestType: 'POST',
-          form: $( this ),
-          requiresAuth: 'true',
-          callback: function(data){
-            console.log( data );
-            OPLB.submitted = true;
-            OPLB.el.modal('hide');
-          }
-        });
-
-        return false;
-
+      OPLB.el.find('.modal-signup').fadeOut('fast', function() {
+        OPLB.el.find('.modal-thanks').show();
       });
     },
     show: function() {
@@ -1783,30 +1723,18 @@ console.log('v2');
           OPLB.util.setCookie('cpc-2016', 'close', 30);
         }
       });
-      dataLayer.push({
-        'eventCategory' : 'Sign Up Lightbox',
-        'eventAction' : 'display',
-        'eventLabel' : 'Sign Up Lightbox',
-        'eventValue' : undefined,
-        'nonInteraction': true,
-        'event' : 'GAEvent'
-      });
+      //ga('send', 'event', 'Sign Up Lightbox', 'display', 'Sign Up Lightbox', {'nonInteraction': 1});
     }
   };
 
-  // expose OPLB to window to make it easier to hook into (ie, for testing)
-  window.OPLB = OPLB;
-
   $('.btnSignUpLightbox').click(function(){
-    ga('send', 'event', 'Sign Up Lightbox', 'click', 'Sign Up Button', {'nonInteraction': 0});
+    //ga('send', 'event', 'Sign Up Lightbox', 'click', 'Sign Up Button', {'nonInteraction': 0});
   });
-
-$(function() {
+  
+  $(function() {
     OPLB.init();
-    console.log("lightbox init");
     //expand the mobile lightbox to full screen when you click on it
     $('#expand-modal').click(function(){
-    console.log("expand");
       $(this).hide();
       $('#expand-modal .fa').hide();
       $('#OPLB-seasonal-guide').removeClass("modal-mobile-bar");
@@ -1814,7 +1742,6 @@ $(function() {
       $('.modal-sub-title').css("visibility", "visible");
     });
     $('.modal-mobile-bar .modal-title').click(function(){
-    console.log("expand");
       $('#expand-modal').hide();
       $('#expand-modal .fa').hide();
       $('#OPLB-seasonal-guide').removeClass("modal-mobile-bar");
@@ -1896,140 +1823,32 @@ function submitEmail(thisDivID) {
 
 (function($){
 
-$('form.emailFollowUs').attr('action', 'javascript:void(0);');
-$('form.emailFooter').attr('action', 'javascript:void(0);');
+  $('form.emailFollowUs').attr('action', 'javascript:void(0);');
+  $('form.emailFooter').attr('action', 'javascript:void(0);');
 
-// initialize page
-$(document).ready(function() {
-  // email submission scripts
-  $('form.emailFollowUs .submitButton').click(function() {
-    submitEmail($(this).parent('form').parent().attr('id'));
-  });
-  $('form.emailFollowUs .primaryEmail').keypress(function (e) {
-    if (e.which == 13) {
-      submitEmail($(this).parent('form').parent().attr('id'));
-      return false;
-    }
-  });
-  $('form.emailFooter .submitButton').click(function() {
-    submitEmail($(this).parent('form').parent().attr('id'));
-  });
-  $('form.emailFooter .primaryEmail').keypress(function (e) {
-    if (e.which == 13) {
-      submitEmail($(this).parent('form').parent().attr('id'));
-      return false;
+  // initialize page
+  $(document).ready(function() {
+    // email submission scripts
+    $('form.emailFollowUs .submitButton').click(function() {
+      submitEmail('emailFollowUs');
+    });
+    $('form.emailFollowUs .primaryEmail').keypress(function (e) {
+      if (e.which == 13) {
+        submitEmail('emailFollowUs');
+        return false;
+      }
+    });
+    $('form.emailFooter .submitButton').click(function() {
+      submitEmail('emailFooter');
+    });
+    $('form.emailFooter .primaryEmail').keypress(function (e) {
+      if (e.which == 13) {
+        submitEmail('emailFooter');
+        return false;
 
-    }
+      }
+    });
   });
-});
 })(jQuery);
 </script>
-<style>
-  
-  /* Survey CSS */
-#OPLB-seasonal-guide.modal-survey-ask .modal-footer {
-  display: block;
-  width: 100%;
-}
-#OPLB-seasonal-guide.modal-survey-ask .modal-header {
-  width: 0;
-  overflow: visible;
-}
-#OPLB-seasonal-guide.modal-survey-ask .modal-thanks-survey {
-  max-width: 750px;
-}
-@media screen and (max-width: 1023px) {
-  #OPLB-seasonal-guide.modal-survey-ask .modal-thanks-survey {
-    width: 90%;
-    margin: 0 auto;
-  }
-  #OPLB-seasonal-guide.modal-survey-ask .modal-thanks-survey p.lede {
-    font-size: 30px;
-  }
-}
-@media screen and (max-width: 767px) {
-  #OPLB-seasonal-guide.modal-survey-ask .modal-thanks-survey {
-    max-width: 385px;
-    margin: 0 auto;
-  }
-}
-.modal-thanks-survey ul {
-  list-style: none;
-  margin: 1em 0;
-  padding: 0;
-}
-.modal-thanks-survey ul li {
-  display: inline-block;
-  max-width: 110px;
-  height: 100px;
-  overflow: hidden;
-  position: relative;
-  vertical-align: middle;
-  margin: 10px;
-}
-.modal-thanks-survey button {
-  background: none;
-  border: 0;
-  color: #0082A2;
-  text-decoration: underline;
-  margin-top: 1.5em;
-}
-@media screen and (max-width: 767px) {
-  .modal-thanks-survey button { margin-top: 0; }
-}
-.modal-thanks-survey ul li label {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  border: 1px solid #68B247;
-  border-radius: 5px;
-  background: #eeeeee;
-  color: #68B247;
-  padding: 15px 10px;
-  overflow: hidden;
-  font-family: 'Arimo', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 20px;
-}
-.modal-thanks-survey ul li label:hover,
-.modal-thanks-survey ul li input[type="checkbox"]:checked + label {
-  color: white;
-  background: #68B247;
-  cursor: pointer;
-}
-.modal-thanks-survey ul li input[type="checkbox"]:not(:checked),
-.modal-thanks-survey ul li input[type="checkbox"]:checked {
-  position: absolute;
-  margin-left: -9999px;
-  visibility: hidden;
-}
-@media screen and (max-width: 1023px) {
-  .modal-thanks-survey ul {
-    max-width: 300px;
-    margin: 20px auto;
-  }
-}
-@media screen and (max-width: 767px) {
-  .modal-thanks-survey ul {
-    max-width: 300px;
-    margin: 20px auto;
-  }
-  #OPLB-seasonal-guide.modal-survey-ask input.btn {
-    width: 75%;
-  }
-  #OPLB-seasonal-guide.modal-survey-ask .modal-footer {
-    width: 90%;
-  }
-  .modal-thanks-survey ul li label {
-    border-width: 2px;
-  }
-  .hide-on-mobile {
-    display: none;
-  }
-}
-
-
-</style>
 </html>

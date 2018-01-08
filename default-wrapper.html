@@ -149,124 +149,57 @@
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T735RZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-	<style>
-		@media all and (min-width: 767px) {
-			#fundraisingModal,
-			.modal-backdrop {
-				display: none !important;	
-			}
-			
-		}
-		@media all and (max-width: 767px) {
-			#fundraisingModal {
-				display: block !important;	
-			}
-			#per-menu {
-				display: none !important;
-			}
-		}
-	</style>
 
- <!--////////////////////////////// PERSISTENT SLIDER/LIGHTBOX BEGINS /////////////////////////////////////// -->
-  <div id="per-menu">
-    <div class="col-xs-1 menu-sidebar">
-      <button class="btn-tab">
-        <span class="btn-tab-text">Donate Today
-          <i class="fa fa-chevron-up lightbox" ></i>
-          <i class="fa fa-chevron-down lightbox" ></i>
-        </span>
-      </button>
-    </div>
-    <div class="lightbox-header-img">
-      <h2>Support Central Park today and your gift will be MATCHED!</h2>
-    </div>
-    <div class="col-xs-11 lightbox-container">
-      <div class="col-xs-12 lightbox-spinner">
-        <i class="fa fa-spinner fa-pulse"></i><br/>
-        Directing to secure page for payment.
-      </div>
-      <div class="lightbox-header">
-        <div class="lightbox-header-text">
-
-        </div>
-
-      </div>
-      <div class="lightbox-body">
-        <div class="lightbox-body-text">
-          Make your tax-deductible gift by Dec. 31, and your donation will double thanks to a group of generous donors — up to $300,000!
-        </div>
-        <div class="lightbox-body-buttons">
-          <button class="btn-plb" id="level10837">$35</button>
-          <button class="btn-plb" id="level10838">$50</button>
-          <button class="btn-plb btn-plb-right" id="level10839">$100</button>
-          <button class="btn-plb" id="level10840">$250</button>
-          <button class="btn-plb" id="level10841">$500</button>
-          <button class="btn-plb btn-plb-right" id="level10842">$1000</button>
-        </div>
-        <div class="lightbox-body-other">
-          <div class="lightbox-body-other-wrap">
-            <span>$</span>
-            <input id="other_amount" name="other_amount" type="text" value="" placeholder="Other">
-          </div>
-        </div>
-        <div class="lightbox-body-monthly">
-          <input id="monthly_gift" name="monthly_gift" type="checkbox" /> Yes, automatically repeat this gift every month.
-        </div>
-        <div class="cta">
-          <a href="https://secure.centralparknyc.org/site/Donation2?df_id=6104&mfc_pref=T&6104.donation=form1&s_src=dsc17w&s_subsrc=web_lightbox_persist" class="donateCta"><button class="btn-cta">Donate Now</button></a>
-        </div>
-        <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>
-      </div>
-    </div>
-  </div>
-  <!--////////////////////////////// PERSISTENT SLIDER/LIGHTBOX ENDS /////////////////////////////////////// -->
-
-  
-  <!--////////////////////////////// MODAL BEGINS ///////////////////////////////////////// -->
-    <div class="modal modal-mobile-bar fade" id="fundraisingModal" aria-hidden="false" data-backdrop="true">
+<!--////////////////////////////// LIGHTBOX MODAL BEGINS ///////////////////////////////////////// -->
+  <div class="modal fade" id="captureModal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/lightbox/fy18-fall-fundraising-lightbox.jpg" class="desktop"/>
           <div class="row">
-            <button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">
-              <i class="fa fa-caret-up" aria-hidden="true"></i>
-            </button>
-            <button type="button" class="close hidden-sm hidden-md hidden-lg close-button-x" data-dismiss="modal" aria-label="Close" tabindex="-1">
-              <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+            <button type="button" class="close hidden-sm hidden-md hidden-lg" data-dismiss="modal" aria-label="Close" tabindex="-1">
+              <span aria-hidden="true">&times;</span>
             </button>
             <button type="button" class="close hidden-xs" data-dismiss="modal" aria-label="Close" tabindex="-1">
-              <img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png">
+              <img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png" />
             </button>
+          </div>
+          <div class="row">
+            <div class="modal-title">Get the Inside Scoop on Central Park!</div>
           </div>
         </div>
         <div class="modal-footer">
-          <div class="modal-signup">
-            <div class="modal-title" id="fundraisingModal-title" style="text-transform: none;">Support Central Park today and your gift will be MATCHED!</div>
-            <div class="modal-sub-title" style="font-size: 19px;">
-              Make your tax-deductible gift by Dec. 31, and your donation will double thanks to a group of generous donors — up to $300,000!
-            </div>
-            <div class="row sign-up-row">
-              <form novalidate="novalidate" method="post" action="https://secure.centralparknyc.org/site/Donation2?df_id=6104&mfc_pref=T&6104.donation=form1&s_src=dsc17w&s_subsrc=web_lightbox_persist">
-                <button class="clickable" onclick="
-	                dataLayer.push({ 
-	                'eventCategory' : 'EOY 2017 Fundraising Lightbox', 
-	                'eventAction' : 'click', 
-	                'eventLabel' : 'Donate Now Button', 
-	                'eventValue' : undefined,
-	                'nonInteraction': false, 
-	                'event' : 'GAEvent'
-	              });">
-                  Donate Now
-                </button>
-              </form>
-              <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>
+          <div class="modal-sub-title">
+            Be the first to know what's going on in the Park, unearth Park secrets, get special offers, and more.
+          </div>
+          <div class="row sign-up-row">
+            <form novalidate="novalidate" id="lbox_register_form" name="lbox_register_form" method="post" action="javascript:void(0);">
+              <input id="cons_email" name="cons_email" placeholder="Your Email" type="text">
+              <input id="cons_zip_code" name="cons_zip_code" placeholder="Your ZIP Code" type="text">
+              <input value="true" name="cons_email_opt_in" type="hidden">
+              <input name="cons_info_component" value="true" type="hidden">
+              <input name="cons_mail_opt_in" value="true" type="hidden">
+              <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">
+              <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">
+              <input name="s_src" value="website" type="hidden">
+              <input name="s_subsrc" value="insider_lightbox_2015" type="hidden">
+              <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">
+              <input name="SURVEY_ID" value="4520" type="hidden">
+              <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">
+              <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">
+              <button class="btnSignUpLightbox clickable" id="formSubmit">
+                SIGN UP NOW
+              </button>
+            </form>
+            <div class="bottom-link hidden-sm hidden-md hidden-lg">
+              <div class="close bottom-link" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">Continue to CentralParkNYC.org</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
   <!--////////////////////////////// MODAL ENDS ///////////////////////////////////////// -->
 
   <div id="offcanvas-wrapper">
@@ -1587,6 +1520,262 @@
 
 })(jQuery);
 
+// begin scripts for email capture lightbox
+
+(function($){
+
+  var OPLB;
+  var html = '';
+  
+  // Create HTML
+  html += '<div class="modal modal-mobile-bar fade" id="OPLB-seasonal-guide" aria-hidden="false" data-backdrop="true">';
+  html += '  <div class="modal-dialog">';
+  html += '    <div class="modal-content">';
+  html += '      <div class="modal-header">';
+  html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge.jpg" class="desktop"/>';
+  html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge-mobile.jpg" class="mobile"/>';
+  html += '        <div class="row">';
+  html += '          <button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">';
+  html += '            <i class="fa fa-caret-up" aria-hidden="true"></i>';
+  html += '          </button>';
+  html += '          <button type="button" class="close hidden-sm hidden-md hidden-lg close-button-x" data-dismiss="modal" aria-label="Close" tabindex="-1">';
+  html += '            <i class="fa fa-times-circle-o" aria-hidden="true"></i>';
+  html += '          </button>';
+  html += '          <button type="button" class="close hidden-xs" data-dismiss="modal" aria-label="Close" tabindex="-1">';
+  html += '            <img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png">';
+  html += '          </button>';
+  html += '        </div>  ';
+  html += '      </div>';
+  html += '      <div class="modal-footer">';
+  html += '        <div class="modal-signup">';
+  html += '          <div class="modal-title">Get the inside scoop on Central Park!</div>';
+  html += '          <div class="modal-sub-title">';
+  html += '            Be the first to know what\'s going on in the Park, unearth Park secrets, get special offers, and more.';
+  html += '          </div>';
+  html += '          <div class="row sign-up-row">';
+  html += '            <form novalidate="novalidate" id="OPLB_form" name="lbox_register_form" method="post" action="javascript:void(0);">';
+  html += '              <input id="cons_email" name="cons_email" placeholder="Your Email" type="text">';
+  html += '              <input value="true" name="cons_email_opt_in" type="hidden">';
+  html += '              <input name="cons_info_component" value="true" type="hidden">';
+  html += '              <input name="cons_mail_opt_in" value="true" type="hidden">';
+  html += '              <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">';
+  html += '              <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">';
+  html += '              <input name="s_src" value="website" type="hidden">';
+  html += '              <input name="s_subsrc" value="lightbox" type="hidden">';
+  html += '              <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">';
+  html += '              <input name="SURVEY_ID" value="4520" type="hidden">';
+  html += '              <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">';
+  html += '              <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">';
+  html += '              <button class="btnSignUpLightbox clickable" id="OPLB_submit">';
+  html += '                Sign Up Now';
+  html += '              </button>  ';
+  html += '            </form>';
+  html += '            <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
+  html += '          </div>  ';
+  html += '        </div>';
+  html += '        <div class="modal-thanks">';
+  html += '          <div class="row thank-you-row">';
+  html += '            <p class="lede">Thanks for signing up!</p>';
+  html += '          </div>';
+  html += '          <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
+  html += '        </div>';
+  html += '      </div>';
+  html += '    </div>';
+  html += '  </div>';
+  html += '</div>';
+
+    OPLB = {
+    el: $(html),
+    parent: $('body'),
+    form: $('#OPLB_form'),
+    old: $('#captureModal'),
+    submitted: false,
+    util: {
+      readCookie: function(n) {
+        var cookiecontent = new String();
+        if(document.cookie.length > 0) {
+          var cookiename = n+ '=';
+          var cookiebegin = document.cookie.indexOf(cookiename);
+          var cookieend = 0;
+          if(cookiebegin > -1) {
+            cookiebegin += cookiename.length;
+            cookieend = document.cookie.indexOf(";",cookiebegin);
+            if(cookieend < cookiebegin) { cookieend = document.cookie.length; }
+            cookiecontent = document.cookie.substring(cookiebegin,cookieend);
+          }
+        }
+        return unescape(cookiecontent);
+      },
+      setCookie: function() {
+        if(arguments.length < 2) { return; }
+        var n = arguments[0];
+        var v = arguments[1];
+        var d = 0;
+        if(arguments.length > 2) { d = parseInt(arguments[2]); }
+        var exp = '';
+        if(d > 0) {
+          var now = new Date();
+          then = now.getTime() + (d * 24 * 60 * 60 * 1000);
+          now.setTime(then);
+          exp = '; expires=' + now.toGMTString();
+        }
+        document.cookie = n + "=" + escape(String(v)) + '; path=/' + exp;
+      },
+      submitOptimizelyEvent: function(optimizely_event_name) {
+        window['optimizely'] = window['optimizely'] || [];
+        window.optimizely.push(["trackEvent", optimizely_event_name]);
+      }
+    },
+    _cleanUp: function() {
+      $('#captureModal').remove();
+      $('.modal-backdrop').remove();
+    },
+    _canShow: function() {
+      return !(OPLB.util.readCookie('cpc-2016') == 'success' || OPLB.util.readCookie('cpc-2016') == 'close');
+    },
+    _isValid: function() {
+      return $('#OPLB_form').valid();
+    },
+    _loadValidation: function() {
+      if (typeof window.Validator == 'undefined') {
+        console.log('Validation library is being loaded.');
+        $.getScript('http://cpc.convio.net/js/jquery.validate.min.js');
+      } else {
+        console.log('Validation library is already loaded.');
+      }
+    },
+    _bindValidation: function() {
+      $('#OPLB_form').validate({
+        rules: {
+          'cons_email'    : { 'required': true, 'email': true, 'maxlength' : 50 }
+        },
+        messages: {
+          'cons_email'    : { 'required': '* required', 'email': '* please enter a valid email', 'maxlength': '* maximum length 50 characters' }
+        }
+      });
+    },
+    _bindEvents: function() {
+      $('#OPLB-seasonal-guide #OPLB_submit').click(function(e) {
+        e.preventDefault() && e.preventDefault;
+        OPLB.submit();
+        return false;
+      });
+      $('#OPLB-seasonal-guide #cons_zip_code').keypress(function(e) {
+        if (e.which == 13) {
+          OPLB.submit();
+        }
+      });
+    },
+    init: function() {
+      // Load validation library, if necessary.
+      OPLB._loadValidation();
+      // Clean up.
+      OPLB._cleanUp();
+      // Append new modal.
+      OPLB.parent.append(OPLB.el);
+      // Bind.
+      OPLB._bindValidation();
+      OPLB._bindEvents();
+      // Check cookie.
+      if (OPLB._canShow()) {
+        OPLB.show();
+      }
+    },
+    submit: function() {
+      var valid = OPLB._isValid();
+
+      if (valid) {
+        var data = 'method=submitSurvey&survey_id=4520';
+        var form = $('#OPLB_form');
+        $('.btnSignUpLightbox').css('visibility', 'hidden');
+        luminateExtend.api({
+          api: 'survey',
+          requestType: 'POST',
+          data: data,
+          form: form,
+          requiresAuth: 'true',
+          callback: function(data){
+            if (data.submitSurveyResponse.success == 'true') {
+              OPLB.util.setCookie("cpc-2016", "success", 1);
+              OPLB.util.submitOptimizelyEvent('email_signup_lightbox');
+              ga('send', 'event', 'Email Sign-up', 'Email Sign-up', 'fall_guide_lightbox');
+              // Show thank you.
+              // OPLB.showThanks();
+              // Hide lightbox.
+              OPLB.el.modal('hide');
+              OPLB.submitted = true;
+            } else {
+              console.log('Error submitting form: ' + data.submitSurveyResponse.errors.errorMessage);
+              $('.btnSignUpLightbox').css('visibility', 'visible');
+            }
+          }
+        });
+      }
+    },
+    showThanks: function() {
+      OPLB.el.find('.modal-signup').fadeOut('fast', function() {
+        OPLB.el.find('.modal-thanks').show();
+      });
+    },
+    show: function() {
+      OPLB.el.modal('show').on('hidden.bs.modal', function () {
+        if (!OPLB.submitted) {
+          OPLB.util.setCookie('cpc-2016', 'close', 30);
+        }
+      });
+      dataLayer.push({
+          'eventCategory' : 'Sign Up Lightbox',
+          'eventAction' : 'Sign Up Lightbox',
+          'eventLabel' : thisDivID,
+          'eventValue' : undefined,
+          'nonInteraction': true,
+          'event' : 'GAEvent'
+        });
+    }
+  };
+
+  $('.btnSignUpLightbox').click(function(){
+    dataLayer.push({
+          'eventCategory' : 'Sign Up Lightbox',
+          'eventAction' : 'Sign Up Button',
+          'eventLabel' : thisDivID,
+          'eventValue' : undefined,
+          'nonInteraction': false,
+          'event' : 'GAEvent'
+        });
+    }
+  });
+  
+  $(function() {
+    OPLB.init();
+    //expand the mobile lightbox to full screen when you click on it
+    $('#expand-modal').click(function(){
+      $(this).hide();
+      $('#expand-modal .fa').hide();
+      $('#OPLB-seasonal-guide').removeClass("modal-mobile-bar");
+      $('#OPLB-seasonal-guide').addClass("modal-mobile-expand");
+      $('.modal-sub-title').css("visibility", "visible");
+    });
+    $('.modal-mobile-bar .modal-title').click(function(){
+      $('#expand-modal').hide();
+      $('#expand-modal .fa').hide();
+      $('#OPLB-seasonal-guide').removeClass("modal-mobile-bar");
+      $('#OPLB-seasonal-guide').addClass("modal-mobile-expand");
+      $('.modal-sub-title').css("visibility", "visible");
+    });
+    //make sure the mobile lightbox closes when you click outside of it
+    /*$(document).on('click touchstart', function(event) {
+      if(!$(event.target).closest('#OPLB-seasonal-guide').length) {
+        if($('#OPLB-seasonal-guide').is(":visible")) {
+          $('#OPLB-seasonal-guide').modal('hide');
+        }
+      }
+    })*/
+  });
+})(jQuery);
+
+// end scripts for email capture lightbox
+
 var urlFull = document.location.href;
 
 function submitEmail(thisDivID) {
@@ -1673,194 +1862,6 @@ function submitEmail(thisDivID) {
         return false;
 
       }
-    });
-  });
-})(jQuery);
-</script>
-
-
-<script type="text/javascript">
-// cookie code for persistent lightbox
-(function($){
-  function activeClasses() {
-    $("#per-menu").addClass("toggle-menu-persistent");
-  }
-  setTimeout(activeClasses, 500);
-
-  function overlayNoClick () {
-    var myOverlay = $('#per-menu').hasClass('persistent-lightbox-overlay');
-    if (myOverlay) {
-      $('#contentDiv a').click(function (e){
-        e.preventDefault();
-      });
-      $('.navbar').click(function (e){
-        e.preventDefault();
-      });
-    }
-    else {
-      $('#contentDiv a').unbind('click');
-      $('.navbar').unbind('click');
-    }
-  }
-
-  $(function() {
-    
-    var cookieValue = readCookie('2017cpcEOYPersistentLB');
-    if (cookieValue == "cpc-eoy-2017") {
-    	//console.log("2017 cookie exists for persistent lightbox " + cookieValue);
-    }
-    else {
-      $("#per-menu").addClass("active persistent-lightbox-overlay ");
-      $('#fundraisingModal').modal('show');
-      dataLayer.push({
-            'eventCategory' : 'Persistent-Lightbox',
-            'eventAction' : 'display',
-            'eventLabel' : 'EOY2017',
-            'eventValue' : undefined,
-            'nonInteraction': true,
-            'event' : 'GAEvent'
-      });
-      setCookie("2017cpcEOYPersistentLB", "cpc-eoy-2017", 1);
-      console.log(cookieValue);
-      overlayNoClick();
-    }
-  });
-  
-	$('#expand-modal').click(function(){
-	console.log("expand");
-		$(this).hide();
-		$('#expand-modal .fa').hide();
-		$('#fundraisingModal').removeClass("modal-mobile-bar");
-		$('#fundraisingModal').addClass("modal-mobile-expand");
-		$('.modal-sub-title').css("visibility", "visible");
-	});
-	$('.modal-mobile-bar .modal-title').click(function(){
-	console.log("expand");
-		$('#expand-modal').hide();
-		$('#expand-modal .fa').hide();
-		$('#fundraisingModal').removeClass("modal-mobile-bar");
-		$('#fundraisingModal').addClass("modal-mobile-expand");
-		$('.modal-sub-title').css("visibility", "visible");
-	});
-
-  $(".menu-sidebar").click(function(){
-    $("#per-menu").toggleClass("active persistent-lightbox-overlay ");
-    overlayNoClick();
-  });
-
-  $('.container').click(function (){
-    $("#per-menu").removeClass("active persistent-lightbox-overlay ");
-    overlayNoClick();
-  });
-
-  $('.fa-times').click(function () {
-    $("#per-menu").removeClass("active persistent-lightbox-overlay ");
-    overlayNoClick();
-  });
-  $('.bottom-link').click(function () {
-    $("#per-menu").removeClass("active persistent-lightbox-overlay ");
-    overlayNoClick();
-  });
-
-  doBounce($('#per-menu .btn-tab-text .fa-chevron-down'), 3, '10px', 350); 
-
-  console.log('unbinding click. using .container');
-})(jQuery);
-
-
-// animate caret button on page load
-function doBounce(element,times,distance,speed){
-  for(i = 0; i < times; i++) {
-    element.animate({top: '-='+distance},speed)
-      .animate({top: '+='+distance},speed);
-  }
-}
-
-//only accept numbers in OTHER AMOUNT input
-function numbersOnly(e,decimal){
-  var key;
-  var keychar;
-  if(window.event)
-     key=window.event.keyCode;
-  else if(e)
-     key=e.which;
-  else
-     return true;
-  keychar=String.fromCharCode(key);
-  if((key==null)||(key==0)||(key==8)||(key==9)||(key==13)||(key==27))
-     return true;
-  else if((("0123456789").indexOf(keychar)>-1))
-     return true;
-  else if(decimal&&(keychar=="."))
-    return true;
-  else
-     return false;
-}
-
-//assign value to DONATE CTA BUTTON
-(function($){
-   $(function() {
-
-    var donationLevel;
-
-    var otherAmount;
-
-    function donationLevelPick () {
-      var ctaLink = $(".donateCta").attr("href") + donationLevel + "#persistent_link";
-      if ($('#monthly_gift').is(':checked')) {
-        ctaLink = $(".donateCta").attr("href") + donationLevel + "&set.OptionalRepeat=true" + "#persistent_link";
-      }
-      $(".donateCta").attr("href", ctaLink);
-        //console.log(ctaLink);
-    }
-
-    function otherAmountURL () {
-
-      otherAmount = $(".donateCta").attr("href") + "&set.DonationLevel=10843&set.Value=" + ($('#other_amount').val()*100) + "#persistent_link";
-      if ($('#monthly_gift').is(':checked')) {
-        otherAmount = $(".donateCta").attr("href") + "&set.DonationLevel=10843&set.Value=" + ($('#other_amount').val()*100) + "&set.OptionalRepeat=true" + "#persistent_link";
-      }
-      $(".donateCta").attr("href", otherAmount);
-    }
-
-
-    $(".btn-plb").click(function () {
-      // get number at end of id and assign to new variable
-      $(".btn-plb").css("background-color", "#eeeeee");
-      $(this).css("background-color", "#68b247");
-      otherAmount = null;
-      $('#other_amount').val("");
-      var buttonId = $(this).attr("id").substring(5);
-      var buttonAmount = parseInt($(this).html().substring(1)) * 100;
-      //console.log(buttonAmount);
-      function donateAmount () {
-        // create var with number at end
-        donationLevel = "&set.DonationLevel=" + buttonId + '&set.Value=' + buttonAmount;
-        //console.log(donationLevel);
-      }
-      donateAmount();
-    });
-
-
-    $('#other_amount').keyup(function() {
-      $(".btn-plb").css("background-color", "#fff");
-      donationLevel = null;
-      otherAmount = $(this).val();
-    });
-
-
-    $(".btn-cta").click(function () {
-      $('.lightbox-container').css("visibility", "hidden");
-      $('.lightbox-spinner').css("visibility", "visible");
-
-      if (donationLevel){
-        donationLevelPick();
-      }
-      if (otherAmount) {
-        otherAmountURL();
-      }
-
-      ga('send', 'event', 'Persistent-Lightbox', 'donate-click', 'EOY2017', {nonInteraction: true});
     });
   });
 })(jQuery);

@@ -98,7 +98,7 @@
   <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700|Oswald" rel="stylesheet">
 
   <!-- Main CSS output file from Sass consolidation -->
-  <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0911170517">
+  <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0111181157">
 
   <!-- Bootstrap core JavaScript -->
   <script type='text/javascript' src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -164,12 +164,12 @@
             </button>
           </div>
           <div class="row">
-            <div class="modal-title">Get the Inside Scoop on Central Park!</div>
+            <div class="modal-title">YOUR FREE CENTRAL PARK WINTER GUIDE</div>
           </div>
         </div>
         <div class="modal-footer">
           <div class="modal-sub-title">
-            Be the first to know what's going on in the Park, unearth Park secrets, get special offers, and more.
+            Make the most of winter in Central Park! This free guide features our map of the best wintertime destinations, upcoming events, family-friendly ways to explore the Park, and more.
           </div>
           <div class="row sign-up-row">
             <form novalidate="novalidate" id="lbox_register_form" name="lbox_register_form" method="post" action="javascript:void(0);">
@@ -181,13 +181,13 @@
               <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">
               <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">
               <input name="s_src" value="website" type="hidden">
-              <input name="s_subsrc" value="insider_lightbox_2015" type="hidden">
+              <input name="s_subsrc" value="201801_seasonal" type="hidden">
               <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">
-              <input name="SURVEY_ID" value="4520" type="hidden">
+              <input name="SURVEY_ID" value="7266" type="hidden">
               <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">
               <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">
               <button class="btnSignUpLightbox clickable" id="formSubmit">
-                SIGN UP NOW
+                GET THE GUIDE
               </button>
             </form>
             <div class="bottom-link hidden-sm hidden-md hidden-lg">
@@ -1527,13 +1527,13 @@
   var OPLB;
   var html = '';
   
-  // Create HTML
+   // Create HTML
   html += '<div class="modal modal-mobile-bar fade" id="OPLB-seasonal-guide" aria-hidden="false" data-backdrop="true">';
   html += '  <div class="modal-dialog">';
   html += '    <div class="modal-content">';
   html += '      <div class="modal-header">';
-  html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge.jpg" class="desktop"/>';
-  html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge-mobile.jpg" class="mobile"/>';
+  html += '      <img src="http://assets.centralparknyc.org/images/email-assets/winter-guide-2018/winterGuide2018-lightbox.jpg" class="desktop"/>';
+  html += '      <img src="http://assets.centralparknyc.org/images/email-assets/winter-guide-2018/winterGuide2018-lightbox.jpg" class="mobile"/>';
   html += '        <div class="row">';
   html += '          <button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">';
   html += '            <i class="fa fa-caret-up" aria-hidden="true"></i>';
@@ -1548,9 +1548,9 @@
   html += '      </div>';
   html += '      <div class="modal-footer">';
   html += '        <div class="modal-signup">';
-  html += '          <div class="modal-title">Get the inside scoop on Central Park!</div>';
+  html += '          <div class="modal-title">YOUR FREE CENTRAL PARK WINTER GUIDE</span></div>';
   html += '          <div class="modal-sub-title">';
-  html += '            Be the first to know what\'s going on in the Park, unearth Park secrets, get special offers, and more.';
+  html += '            Make the most of winter in Central Park! This free guide features our map of the best wintertime destinations, upcoming events, family-friendly ways to explore the Park, and more.';
   html += '          </div>';
   html += '          <div class="row sign-up-row">';
   html += '            <form novalidate="novalidate" id="OPLB_form" name="lbox_register_form" method="post" action="javascript:void(0);">';
@@ -1560,22 +1560,52 @@
   html += '              <input name="cons_mail_opt_in" value="true" type="hidden">';
   html += '              <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">';
   html += '              <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">';
-  html += '              <input name="s_src" value="website" type="hidden">';
+  html += '              <input name="s_src" value="201801_seasonal" type="hidden">';
   html += '              <input name="s_subsrc" value="lightbox" type="hidden">';
   html += '              <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">';
-  html += '              <input name="SURVEY_ID" value="4520" type="hidden">';
+  html += '              <input name="SURVEY_ID" value="7266" type="hidden">';
   html += '              <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">';
   html += '              <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">';
   html += '              <button class="btnSignUpLightbox clickable" id="OPLB_submit">';
-  html += '                Sign Up Now';
+  html += '                Get the Guide';
   html += '              </button>  ';
   html += '            </form>';
   html += '            <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
   html += '          </div>  ';
   html += '        </div>';
-  html += '        <div class="modal-thanks">';
+  html += '        <div class="modal-thanks modal-thanks-survey">';
   html += '          <div class="row thank-you-row">';
-  html += '            <p class="lede">Thanks for signing up!</p>';
+  html += '            <p class="lede">Thanks!</p>';
+  html += '            <p>Check your inbox for a link to the Winter Guide, or <a href="http://assets.centralparknyc.org/pdfs/guides/Winter-Guide-2018.pdf" target="_blank" class="lb-winter-guide-link">download it by clicking here</a>.</p>';
+  html += '            <p>Before you go, our Conservancy staff would love to know — <strong>which of the following ways do you use Central Park?</strong> <span class="hide-on-mobile">Pick as many options as you\'d like.</span></p>';
+  html += '            <form method="POST" action="http://support.centralparknyc.org/site/Survey">';
+  html += '             <input type="hidden" name="method" value="submitSurvey" />';
+  html += '             <input type="hidden" name="cons_email" value="" size="45" maxlength="255" />';
+  html += '               <ul>';
+  html += '                 <li>';
+  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_4" class="checkbox" value="1309"  />';
+  html += '                   <label for="1872_7027_2_9663_4" class="wrapable">Playing with your family</label>';
+  html += '                 </li>';
+  html += '                 <li>';
+  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_5" class="checkbox" value="1221"  />';
+  html += '                   <label for="1872_7027_2_9663_5" class="wrapable">Walking your dog</label>';
+  html += '                 </li>';
+  html += '                 <li>';
+  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_1" class="checkbox" value="1781"  />';
+  html += '                   <label for="1872_7027_2_9663_1" class="wrapable">Attending tours &amp; events</label>';
+  html += '                 </li>';
+  html += '                 <li>';
+  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_2" class="checkbox" value="1081"  />';
+  html += '                   <label for="1872_7027_2_9663_2" class="wrapable">Fitness or sports</label>';
+  html += '                 </li>';
+  html += '               </ul>';
+  html += '               <input type="hidden" name="denySubmit" id="denySubmit" value="" />';
+  html += '               <input type="submit" name="ACTION_SUBMIT_SURVEY_RESPONSE" id="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit" class="btn" />';
+  html += '               <input type="hidden" name="survey_id" value="7027" />';
+  html += '             </form>';
+  html += '             <button type="button" data-dismiss="modal" aria-label="Close" tabindex="-1">';
+  html += '               None of the above';
+  html += '             </button>';
   html += '          </div>';
   html += '          <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
   html += '        </div>';
@@ -1583,8 +1613,8 @@
   html += '    </div>';
   html += '  </div>';
   html += '</div>';
-
-    OPLB = {
+  
+  OPLB = {
     el: $(html),
     parent: $('body'),
     form: $('#OPLB_form'),
@@ -1631,7 +1661,7 @@
       $('.modal-backdrop').remove();
     },
     _canShow: function() {
-      return !(OPLB.util.readCookie('cpc-2016') == 'success' || OPLB.util.readCookie('cpc-2016') == 'close');
+      return !(OPLB.util.readCookie('cpc-2018') == 'success' || OPLB.util.readCookie('cpc-2018') == 'close');
     },
     _isValid: function() {
       return $('#OPLB_form').valid();
@@ -1641,7 +1671,7 @@
         console.log('Validation library is being loaded.');
         $.getScript('http://cpc.convio.net/js/jquery.validate.min.js');
       } else {
-        console.log('Validation library is already loaded.');
+        //console.log('Validation library is already loaded.');
       }
     },
     _bindValidation: function() {
@@ -1665,6 +1695,16 @@
           OPLB.submit();
         }
       });
+      $('.lb-winter-guide-link').click(function(){
+        dataLayer.push({
+          'eventCategory' : 'Winter Guide Lightbox',
+          'eventAction' : 'click',
+          'eventLabel' : 'Download Winter Guide PDF',
+          'eventValue' : undefined,
+          'nonInteraction': true,
+          'event' : 'GAEvent'
+        });
+      });
     },
     init: function() {
       // Load validation library, if necessary.
@@ -1685,7 +1725,7 @@
       var valid = OPLB._isValid();
 
       if (valid) {
-        var data = 'method=submitSurvey&survey_id=4520';
+        var data = 'method=submitSurvey&survey_id=7266';
         var form = $('#OPLB_form');
         $('.btnSignUpLightbox').css('visibility', 'hidden');
         luminateExtend.api({
@@ -1696,13 +1736,21 @@
           requiresAuth: 'true',
           callback: function(data){
             if (data.submitSurveyResponse.success == 'true') {
-              OPLB.util.setCookie("cpc-2016", "success", 1);
+              OPLB.util.setCookie("cpc-2018", "success", 365);
               OPLB.util.submitOptimizelyEvent('email_signup_lightbox');
-              ga('send', 'event', 'Email Sign-up', 'Email Sign-up', 'fall_guide_lightbox');
+              dataLayer.push({
+		          'eventCategory' : 'Email Sign-up',
+		          'eventAction' : 'Email Sign-up',
+		          'eventLabel' : 'winter_guide_lightbox',
+		          'eventValue' : undefined,
+		          'nonInteraction': false,
+		          'event' : 'GAEvent'
+		        });
               // Show thank you.
-              // OPLB.showThanks();
+              OPLB.showThanks();
+              console.log("show thanks");
               // Hide lightbox.
-              OPLB.el.modal('hide');
+              //OPLB.el.modal('hide');
               OPLB.submitted = true;
             } else {
               console.log('Error submitting form: ' + data.submitSurveyResponse.errors.errorMessage);
@@ -1713,22 +1761,67 @@
       }
     },
     showThanks: function() {
-      OPLB.el.find('.modal-signup').fadeOut('fast', function() {
-        OPLB.el.find('.modal-thanks').show();
+      OPLB.el.addClass( 'modal-survey-ask' );
+
+      // pull in email from last stop
+      OPLB.el.find( '.modal-thanks input[name="cons_email"]' ).val( OPLB.el.find( '.modal-signup input[name="cons_email"]' ).val() );
+
+      // hide signup and show TY content
+      OPLB.el.find( '.modal-signup' ).hide();
+      OPLB.el.find( '.modal-header > img' ).hide();
+      OPLB.el.find( '.modal-thanks' ).show();
+
+      OPLB.el.find( '.modal-thanks form' ).on( 'submit', function( event ) {
+        event.preventDefault();
+
+        // remove values for an unchecked interests so that
+        // users are not automatically opted-out
+        $( this ).find( 'input[type="checkbox"]' ).not( ':checked' )
+          .val( ' ' )
+          .attr( 'name', ' ' );
+
+        luminateExtend.api({
+          api: 'survey',
+          requestType: 'POST',
+          form: $( this ),
+          requiresAuth: 'true',
+          callback: function(data){
+            console.log( data );
+            OPLB.submitted = true;
+            OPLB.el.modal('hide');
+          }
+        });
+
+        return false;
+
       });
     },
     show: function() {
       OPLB.el.modal('show').on('hidden.bs.modal', function () {
         if (!OPLB.submitted) {
-          OPLB.util.setCookie('cpc-2016', 'close', 30);
+          OPLB.util.setCookie('cpc-2018', 'close', 30);
         }
       });
-      //ga('send', 'event', 'Sign Up Lightbox', 'display', 'Sign Up Lightbox', {'nonInteraction': 1});
+      dataLayer.push({
+          'eventCategory' : 'Sign Up Lightbox',
+          'eventAction' : 'display',
+          'eventLabel' : 'Sign Up Lightbox',
+          'eventValue' : undefined,
+          'nonInteraction': true,
+          'event' : 'GAEvent'
+        });
     }
   };
 
   $('.btnSignUpLightbox').click(function(){
-    //ga('send', 'event', 'Sign Up Lightbox', 'click', 'Sign Up Button', {'nonInteraction': 0});
+    dataLayer.push({
+          'eventCategory' : 'Sign Up Lightbox',
+          'eventAction' : 'click',
+          'eventLabel' : 'Sign Up Button',
+          'eventValue' : undefined,
+          'nonInteraction': false,
+          'event' : 'GAEvent'
+        });
   });
   
   $(function() {
@@ -1748,14 +1841,6 @@
       $('#OPLB-seasonal-guide').addClass("modal-mobile-expand");
       $('.modal-sub-title').css("visibility", "visible");
     });
-    //make sure the mobile lightbox closes when you click outside of it
-    /*$(document).on('click touchstart', function(event) {
-      if(!$(event.target).closest('#OPLB-seasonal-guide').length) {
-        if($('#OPLB-seasonal-guide').is(":visible")) {
-          $('#OPLB-seasonal-guide').modal('hide');
-        }
-      }
-    })*/
   });
 })(jQuery);
 

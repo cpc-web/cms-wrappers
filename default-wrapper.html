@@ -100,6 +100,37 @@
   <!-- Main CSS output file from Sass consolidation -->
   <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0111181157">
 
+<style>
+form.emailFollow input {
+    height: 41px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #C5C5C5;
+    color: #636466;
+    width: 200px;
+    margin-top: 3px;
+}
+
+form.emailFollow .submitButton {
+    color: #FFFFFF;
+    font-size: 16px;
+    border: solid #79bf43 0px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: "Oswald", sans-serif;
+    border-radius: 2px;
+    background-color: #77BA59;
+    background-image: -webkit-linear-gradient(#77BA59, #548E39);
+    background-image: linear-gradient(#77BA59, #548E39);
+    height: 41px;
+    width: 100px;
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-left: -5px;
+}
+</style>
+
   <!-- Bootstrap core JavaScript -->
   <script type='text/javascript' src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
@@ -1906,9 +1937,68 @@ function submitEmail(thisDivID) {
 })(jQuery);
 }
 
+function submitEmailPage(thisDivID) {
+(function($){
+  var myEmail = $('#'+thisDivID+' form input.primaryEmail').val();
+  $('input.primaryEmail').val(myEmail);
+  var myForm = $('#'+thisDivID+' form');
+  var myData = 'method=submitSurvey&survey_id=6189';
+  luminateExtend.api({
+    api: 'survey',
+    requestType: 'POST',
+    data: myData,
+    form: myForm,
+    requiresAuth: 'true',
+    callback: function(data){
+      var successVar = (data.submitSurveyResponse) ? data.submitSurveyResponse.success : '';
+      var errorVar = (data.errorResponse) ? data.errorResponse.code : '';
+      if(successVar == 'true') {
+        var submitOpt = 'email_signup_'+thisDivID;
+        submitOptimizelyEvent(submitOpt);
+        $('.primaryEmail').hide();
+        $('.submitButton').hide();
+        $('.noteBox').show().html('<div id="thanksBox">Thank you! To complete your profile, visit our <a href="http://www.centralparknyc.org/cpc-registration.html?show=all" onClick="dataLayer.push({\'eventCategory\' : \'Link\', \'eventAction\' : \'Click\', \'eventLabel\' : \'Tell Us More - EmailWide\', \'eventValue\' : undefined, \'nonInteraction\': false, \'event\' : \'GAEvent\'});">Registration Page.</a></div>');
+        dataLayer.push({
+          'eventCategory' : 'Email Sign-up',
+          'eventAction' : 'Email Sign-up',
+          'eventLabel' : thisDivID,
+          'eventValue' : undefined,
+          'nonInteraction': false,
+          'event' : 'GAEvent'
+        });
+      } else {
+        if (errorVar == '1734') {
+          var s8 = $('#s8').text();
+          $('.noteBox').show().html('<p style="color: #F00">This email address already exists; please <a href="http://support.centralparknyc.org/site/UserLogin?NEXTURL='+s8+'">log in</a> to continue.</p>');
+          dataLayer.push({
+            'eventCategory' : 'Email Sign-up',
+            'eventAction' : 'Duplicate Sign-up',
+            'eventLabel' : thisDivID,
+            'eventValue' : undefined,
+            'nonInteraction': false,
+            'event' : 'GAEvent'
+          });
+        } else {
+          $('.noteBox').show().html('<p style="color: #F00">'+data.submitSurveyResponse.errors.errorMessage+'</p>');
+          dataLayer.push({
+            'eventCategory' : 'Email Sign-up',
+            'eventAction' : 'Failed Sign-up',
+            'eventLabel' : thisDivID,
+            'eventValue' : undefined,
+            'nonInteraction': false,
+            'event' : 'GAEvent'
+          });
+        }
+      }
+    }
+  });
+})(jQuery);
+}
+
 (function($){
 
   $('form.emailFollowUs').attr('action', 'javascript:void(0);');
+  $('form.emailFollow').attr('action', 'javascript:void(0);');
   $('form.emailFooter').attr('action', 'javascript:void(0);');
 
   // initialize page
@@ -1920,6 +2010,15 @@ function submitEmail(thisDivID) {
     $('form.emailFollowUs .primaryEmail').keypress(function (e) {
       if (e.which == 13) {
         submitEmail('emailFollowUs');
+        return false;
+      }
+    });
+    $('form.emailFollow .submitButton').click(function() {
+      submitEmailPage('emailFollow');
+    });
+    $('form.emailFollow .primaryEmail').keypress(function (e) {
+      if (e.which == 13) {
+        submitEmailPage('emailFollow');
         return false;
       }
     });

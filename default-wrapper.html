@@ -1880,12 +1880,12 @@
 
 var urlFull = document.location.href;
 
-function submitEmail(thisDivID) {
+function submitEmailPage(thisDivID) {
 (function($){
   var myEmail = $('#'+thisDivID+' form input.primaryEmail').val();
   $('input.primaryEmail').val(myEmail);
   var myForm = $('#'+thisDivID+' form');
-  var myData = 'method=submitSurvey&survey_id=2621';
+  var myData = 'method=submitSurvey&survey_id=6189';
   luminateExtend.api({
     api: 'survey',
     requestType: 'POST',
@@ -1941,6 +1941,7 @@ function submitEmail(thisDivID) {
 (function($){
 
   $('form.emailFollowUs').attr('action', 'javascript:void(0);');
+  $('form.emailFollow').attr('action', 'javascript:void(0);');
   $('form.emailFooter').attr('action', 'javascript:void(0);');
 
   // initialize page
@@ -1952,6 +1953,15 @@ function submitEmail(thisDivID) {
     $('form.emailFollowUs .primaryEmail').keypress(function (e) {
       if (e.which == 13) {
         submitEmail('emailFollowUs');
+        return false;
+      }
+    });
+    $('form.emailFollow .submitButton').click(function() {
+      submitEmailPage('emailFollow');
+    });
+    $('form.emailFollow .primaryEmail').keypress(function (e) {
+      if (e.which == 13) {
+        submitEmailPage('emailFollow');
         return false;
       }
     });

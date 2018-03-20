@@ -99,38 +99,6 @@
 
   <!-- Main CSS output file from Sass consolidation -->
   <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0111181157">
-  
-  <style>
-	form.emailFollow input {
-	    height: 41px;
-	    padding: 10px;
-	    outline: none;
-	    border: 1px solid #C5C5C5;
-	    color: #636466;
-	    width: 200px;
-	    margin-top: 3px;
-	}
-	
-	form.emailFollow .submitButton {
-	    color: #FFFFFF;
-	    font-size: 16px;
-	    border: solid #79bf43 0px;
-	    text-decoration: none;
-	    text-align: center;
-	    letter-spacing: 2px;
-	    font-family: "Oswald", sans-serif;
-	    border-radius: 2px;
-	    background-color: #77BA59;
-	    background-image: -webkit-linear-gradient(#77BA59, #548E39);
-	    background-image: linear-gradient(#77BA59, #548E39);
-	    height: 41px;
-	    width: 100px;
-	    vertical-align: middle;
-	    margin-top: -4px;
-	    margin-left: -5px;
-	}
-	</style>
-
 
   <!-- Bootstrap core JavaScript -->
   <script type='text/javascript' src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -1880,12 +1848,12 @@
 
 var urlFull = document.location.href;
 
-function submitEmailPage(thisDivID) {
+function submitEmail(thisDivID) {
 (function($){
   var myEmail = $('#'+thisDivID+' form input.primaryEmail').val();
   $('input.primaryEmail').val(myEmail);
   var myForm = $('#'+thisDivID+' form');
-  var myData = 'method=submitSurvey&survey_id=6189';
+  var myData = 'method=submitSurvey&survey_id=2621';
   luminateExtend.api({
     api: 'survey',
     requestType: 'POST',
@@ -1941,7 +1909,6 @@ function submitEmailPage(thisDivID) {
 (function($){
 
   $('form.emailFollowUs').attr('action', 'javascript:void(0);');
-  $('form.emailFollow').attr('action', 'javascript:void(0);');
   $('form.emailFooter').attr('action', 'javascript:void(0);');
 
   // initialize page
@@ -1953,15 +1920,6 @@ function submitEmailPage(thisDivID) {
     $('form.emailFollowUs .primaryEmail').keypress(function (e) {
       if (e.which == 13) {
         submitEmail('emailFollowUs');
-        return false;
-      }
-    });
-    $('form.emailFollow .submitButton').click(function() {
-      submitEmailPage('emailFollow');
-    });
-    $('form.emailFollow .primaryEmail').keypress(function (e) {
-      if (e.which == 13) {
-        submitEmailPage('emailFollow');
         return false;
       }
     });
@@ -1978,4 +1936,4 @@ function submitEmailPage(thisDivID) {
   });
 })(jQuery);
 </script>
-</html> 
+</html>

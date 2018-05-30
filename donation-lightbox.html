@@ -99,37 +99,37 @@
 
   <!-- Main CSS output file from Sass consolidation -->
   <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0111181157">
-
-<style>
-form.emailFollow input {
-    height: 41px;
-    padding: 10px;
-    outline: none;
-    border: 1px solid #C5C5C5;
-    color: #636466;
-    width: 200px;
-    margin-top: 3px;
-}
-
-form.emailFollow .submitButton {
-    color: #FFFFFF;
-    font-size: 16px;
-    border: solid #79bf43 0px;
-    text-decoration: none;
-    text-align: center;
-    letter-spacing: 2px;
-    font-family: "Oswald", sans-serif;
-    border-radius: 2px;
-    background-color: #77BA59;
-    background-image: -webkit-linear-gradient(#77BA59, #548E39);
-    background-image: linear-gradient(#77BA59, #548E39);
-    height: 41px;
-    width: 100px;
-    vertical-align: middle;
-    margin-top: -4px;
-    margin-left: -5px;
-}
-</style>
+  
+    <style>
+	form.emailFollowBody input {
+	    height: 41px;
+	    padding: 10px;
+	    outline: none;
+	    border: 1px solid #C5C5C5;
+	    color: #636466;
+	    width: 200px;
+	    margin-top: 3px;
+	}
+	
+	form.emailFollowBody .submitButton {
+	    color: #FFFFFF;
+	    font-size: 16px;
+	    border: solid #79bf43 0px;
+	    text-decoration: none;
+	    text-align: center;
+	    letter-spacing: 2px;
+	    font-family: "Oswald", sans-serif;
+	    border-radius: 2px;
+	    background-color: #77BA59;
+	    background-image: -webkit-linear-gradient(#77BA59, #548E39);
+	    background-image: linear-gradient(#77BA59, #548E39);
+	    height: 41px;
+	    width: 100px;
+	    vertical-align: middle;
+	    margin-top: -4px;
+	    margin-left: -5px;
+	}
+	</style>
 
   <!-- Bootstrap core JavaScript -->
   <script type='text/javascript' src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -181,49 +181,55 @@ form.emailFollow .submitButton {
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T735RZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!--////////////////////////////// MODAL BEGINS ///////////////////////////////////////// -->
-    <div class="modal modal-mobile-bar fade" id="fundraisingModal" aria-hidden="false" data-backdrop="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/lightbox/fy18-fall-fundraising-lightbox.jpg" class="desktop"/>
-          <div class="row">
-            <button type="button" class="close hidden-sm hidden-md hidden-lg close-button-x" data-dismiss="modal" aria-label="Close" tabindex="-1">
-              <span aria-hidden="true">x</span>
-            </button>
-            <button type="button" class="close hidden-xs" data-dismiss="modal" aria-label="Close" tabindex="-1">
-              <img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png">
-            </button>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <div class="modal-signup">
-            <div class="modal-title" id="fundraisingModal-title" style="text-transform: none;">What would fall in Central Park be without trees?</div>
-            <div class="modal-sub-title" style="font-size: 19px;">
-              159 years ago, the very first tree was placed in Central Park! Help us celebrate this major milestone by making a gift to ensure the legacy of our Park.
-            </div>
-            <div class="row sign-up-row">
-              <form novalidate="novalidate" method="post" action="https://secure.centralparknyc.org/site/SPageNavigator/201710_engagement_MR.html?s_src=dsa17w&s_subsrc=web_lightbox">
-                <button class="clickable" onclick="
-	                dataLayer.push({ 
-	                'eventCategory' : 'Fall 2017 Fundraising Lightbox', 
-	                'eventAction' : 'click', 
-	                'eventLabel' : 'Donate Now Button', 
-	                'eventValue' : undefined,
-	                'nonInteraction': false, 
-	                'event' : 'GAEvent'
-	              });">
-                  Donate Now
-                </button>
-              </form>
-              <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--////////////////////////////// MODAL ENDS ///////////////////////////////////////// -->
+	<!--////////////////////////////// LIGHTBOX MODAL BEGINS ///////////////////////////////////////// -->
+	<div class="modal modal-mobile-bar fade" id="fundraisingModal" aria-hidden="false" data-backdrop="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<img src="http://assets.centralparknyc.org/images/lightbox/fye2017-lightbox-desktop.jpg" class="desktop"/>
+					<img src="http://assets.centralparknyc.org/images/lightbox/fye2017-lightbox-desktop.jpg" class="mobile"/>
+					<div class="row">
+						<button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">
+							<i class="fa fa-caret-up" aria-hidden="true"></i>
+						</button>
+						<button type="button" class="close hidden-sm hidden-md hidden-lg close-button-x" data-dismiss="modal" aria-label="Close" tabindex="-1">
+							<i class="fa fa-times-circle-o" aria-hidden="true"></i>
+						</button>
+						<button type="button" class="close hidden-xs" data-dismiss="modal" aria-label="Close" tabindex="-1">
+							<img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png">
+						</button>
+					</div>
+				</div> <!-- /.modal-header -->
+				<div class="modal-footer">
+					<div class="modal-signup">
+						<div class="modal-title" id="fundraisingModal-title" style="text-transform: none;">What would fall in Central Park be without trees?</div>
+						<div class="modal-sub-title" style="font-size: 19px;">159 years ago, the very first tree was placed in Central Park! Help us celebrate this major milestone by making a gift to ensure the legacy of our Park.</div>
+						<div class="row sign-up-row">
+							<form novalidate="novalidate" method="post" action="https://secure.centralparknyc.org/site/Donation2?df_id=6380&6380.donation=form1&mfc_pref=T&s_src=ds618w&s_subsrc=web_lightbox">
+								<button class="clickable" onclick="
+									dataLayer.push({ 
+									'eventCategory' : 'FYE 2018 Fundraising Lightbox', 
+									'eventAction' : 'click', 
+									'eventLabel' : 'Donate Now Button', 
+									'eventValue' : undefined,
+									'nonInteraction': false, 
+									'event' : 'GAEvent'
+									});">
+									Donate Now
+								</button>
+							</form>
+							<div class="bottom-link hidden-sm hidden-md hidden-lg">
+								<div class="close bottom-link" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">Continue to CentralParkNYC.org</span>
+								</div>
+							</div> <!-- /.bottom-link -->
+						</div> <!-- /.sign-up-row -->
+					</div> <!-- /.modal-signup -->
+				</div> <!-- /.modal-footer -->
+			</div> <!-- /.modal-content -->
+		</div> <!-- /.modal-dialog -->
+	</div> <!-- /.modal -->
+	<!--////////////////////////////// MODAL ENDS ///////////////////////////////////////// -->
 
   <div id="offcanvas-wrapper">
     <div id="site-canvas">
@@ -249,7 +255,7 @@ form.emailFollow .submitButton {
       <div class="mobile-menu" id="offcanvas-menu">
         <ul class="navbar-mobile-menu">
           <li class="">
-            <button class="join-renew-mobile" tabindex="-1"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_mobile_mem" onclick="
+            <button class="join-renew-mobile" tabindex="-1"><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy18w&s_subsrc=web_nav_mobile_mem" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'Join or Renew', 
@@ -518,7 +524,7 @@ form.emailFollow .submitButton {
                 'nonInteraction': false, 
                 'event' : 'GAEvent'
               });" tabindex="-1">Benefit Events</a></li>
-              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=donate&s_src=dfy18w&s_subsrc=web_nav_mobile_don" onclick="
+              <li><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6300&6300.donation=form1&s_src=dfy18w&s_subsrc=web_nav_mobile_don" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'Support', 
@@ -536,7 +542,7 @@ form.emailFollow .submitButton {
                 'nonInteraction': false, 
                 'event' : 'GAEvent'
               });" tabindex="-1">Honor / Memorial</a></li>
-              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_mobile_mem" onclick="
+              <li><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy18w&s_subsrc=web_nav_mobile_mem" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'Support', 
@@ -892,7 +898,7 @@ form.emailFollow .submitButton {
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });" tabindex="-1">Benefit Events</a></li>
-                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=donate&s_src=dfy18w&s_subsrc=web_nav_top_don" onclick="
+                  <li><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6300&6300.donation=form1&s_src=dfy18w&s_subsrc=web_nav_top_don" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Support', 
@@ -910,7 +916,7 @@ form.emailFollow .submitButton {
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });" tabindex="-1">Honor / Memorial</a></li>
-                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_top_mem" onclick="
+                  <li><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy18w&s_subsrc=web_nav_top_mem" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Support', 
@@ -940,7 +946,7 @@ form.emailFollow .submitButton {
                 </ul>
               </li>
               <li class="donate-hp">
-                <a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_menu_mem" onclick="
+                <a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy18w&s_subsrc=web_nav_menu_mem" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Join or Renew', 
@@ -1036,8 +1042,8 @@ form.emailFollow .submitButton {
           <footer class="hidden-xs row">
             <div class="col-sm-3 hidden-xs">
               <a href="http://www.centralparknyc.org/" target="_blank"><img class="logo" src="http://support.centralparknyc.org/redesign/img/cpc/CPCwhitelogo.png" alt="Central Park Conservancy Logo"></a><br>
-              <p style="width:95%;">Central Park is managed and maintained by Central Park Conservancy under contract with the City of New York. Central Park Conservancy is a tax exempt 501(c)(3) nonprofit organization.</p>
-              <p><strong>Central Park Conservancy</strong><br>14 East 60th St<br>New York, NY, 10022<br>212.310.6600<br><br>&copy;2017 Central Park Conservancy. All Rights Reserved.<br/></p>
+              <p style="width:95%;">Central Park is managed and maintained by the Central Park Conservancy under contract with the City of New York. The Central Park Conservancy is a tax exempt 501(c)(3) nonprofit organization.</p>
+              <p><strong>Central Park Conservancy</strong><br>14 East 60th St<br>New York, NY, 10022<br>212.310.6600<br><br>&copy;2018 Central Park Conservancy. All Rights Reserved.<br/></p>
             </div>
             <div class="col-sm-9 hidden-xs">
               <div class="row">
@@ -1285,7 +1291,7 @@ form.emailFollow .submitButton {
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });">Benefit Events</a></li>
-                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=donate&s_src=dfy18w&s_subsrc=web_nav_footer_don" onclick="
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6300&6300.donation=form1&s_src=dfy18w&s_subsrc=web_nav_footer_don" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Footer', 
@@ -1303,7 +1309,7 @@ form.emailFollow .submitButton {
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });">Honor / Memorial</a></li>
-                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_footer_mem" onclick="
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy18w&s_subsrc=web_nav_footer_mem" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Footer', 
@@ -1393,7 +1399,7 @@ form.emailFollow .submitButton {
                     <li>
                       <img class="footer-logo-mobile" src="http://support.centralparknyc.org/redesign/img/cpc/CPCwhitelogo.png" alt="Central Park Conservancy Logo">
                     </li>
-                    <li class="footer-link">Central Park is managed and maintained by Central Park Conservancy under contract with the City of New York.</li>
+                    <li class="footer-link">Central Park is managed and maintained by the Central Park Conservancy under contract with the City of New York.</li>
                     <li class="footer-link"><a href="http://www.centralparknyc.org/visit/" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
@@ -1440,7 +1446,7 @@ form.emailFollow .submitButton {
                     'event' : 'GAEvent'
                   });">Contact Us</a></li>
                     <p class="footerAddress">Central Park Conservancy, 14 E. 60th St <br/> New York, NY, 10022&nbsp;&nbsp;Phone: 212.310.6600<br/>
-                       &#169;2017, Central Park Conservancy. All Rights Reserved.</p>
+                       &#169;2018, Central Park Conservancy. All Rights Reserved.</p>
                   </ul>
                 </div>
               </div>
@@ -1544,20 +1550,21 @@ form.emailFollow .submitButton {
 })(jQuery);
 
 // begin scripts for email capture lightbox
+
 (function($){
-  $(function() {
+	$(function() {
     // set cookies
-    var cookieValue = readCookie('fy18fallfund');
-    if (cookieValue == "cpc-fall2017") {
+    var cookieValue = readCookie('fye18fund');
+    if (cookieValue == "cpc-fye2018") {
       //console.log("cookie " + cookieValue);
     } else {
       //console.log("show lightbox?");
       $('#fundraisingModal').modal('show');
-      setCookie("fy18fallfund", "cpc-fall2017", 1);
+      setCookie("fye18fund", "cpc-fye2018", 1);
       dataLayer.push({
-        'eventCategory' : 'Fall 2017 Fundraising Lightbox',
+        'eventCategory' : 'FYE 2018 Fundraising Lightbox',
         'eventAction' : 'display',
-        'eventLabel' : 'Fall 2017 Fundraising Lightbox',
+        'eventLabel' : 'FYE 2018 Fundraising Lightbox',
         'eventValue' : undefined,
         'nonInteraction': true,
         'event' : 'GAEvent'
@@ -1565,6 +1572,21 @@ form.emailFollow .submitButton {
     }
     $('.closeModal').click(function() {
       $('#fundraisingModal').modal('hide');
+    });
+    //expand the mobile lightbox to full screen when you click on it
+    $('#expand-modal').click(function(){
+      $(this).hide();
+      $('#expand-modal .fa').hide();
+      $('#fundraisingModal').removeClass("modal-mobile-bar");
+      $('#fundraisingModal').addClass("modal-mobile-expand");
+      $('.modal-sub-title').css("visibility", "visible");
+    });
+    $('.modal-mobile-bar .modal-title').click(function(){
+      $('#expand-modal').hide();
+      $('#expand-modal .fa').hide();
+      $('#fundraisingModal').removeClass("modal-mobile-bar");
+      $('#fundraisingModal').addClass("modal-mobile-expand");
+      $('.modal-sub-title').css("visibility", "visible");
     });
   });
 })(jQuery);
@@ -1630,68 +1652,9 @@ function submitEmail(thisDivID) {
 })(jQuery);
 }
 
-function submitEmailPage(thisDivID) {
-(function($){
-  var myEmail = $('#'+thisDivID+' form input.primaryEmail').val();
-  $('input.primaryEmail').val(myEmail);
-  var myForm = $('#'+thisDivID+' form');
-  var myData = 'method=submitSurvey&survey_id=6189';
-  luminateExtend.api({
-    api: 'survey',
-    requestType: 'POST',
-    data: myData,
-    form: myForm,
-    requiresAuth: 'true',
-    callback: function(data){
-      var successVar = (data.submitSurveyResponse) ? data.submitSurveyResponse.success : '';
-      var errorVar = (data.errorResponse) ? data.errorResponse.code : '';
-      if(successVar == 'true') {
-        var submitOpt = 'email_signup_'+thisDivID;
-        submitOptimizelyEvent(submitOpt);
-        $('.primaryEmail').hide();
-        $('.submitButton').hide();
-        $('.noteBox').show().html('<div id="thanksBox">Thank you! To complete your profile, visit our <a href="http://www.centralparknyc.org/cpc-registration.html?show=all" onClick="dataLayer.push({\'eventCategory\' : \'Link\', \'eventAction\' : \'Click\', \'eventLabel\' : \'Tell Us More - EmailWide\', \'eventValue\' : undefined, \'nonInteraction\': false, \'event\' : \'GAEvent\'});">Registration Page.</a></div>');
-        dataLayer.push({
-          'eventCategory' : 'Email Sign-up',
-          'eventAction' : 'Email Sign-up',
-          'eventLabel' : thisDivID,
-          'eventValue' : undefined,
-          'nonInteraction': false,
-          'event' : 'GAEvent'
-        });
-      } else {
-        if (errorVar == '1734') {
-          var s8 = $('#s8').text();
-          $('.noteBox').show().html('<p style="color: #F00">This email address already exists; please <a href="http://support.centralparknyc.org/site/UserLogin?NEXTURL='+s8+'">log in</a> to continue.</p>');
-          dataLayer.push({
-            'eventCategory' : 'Email Sign-up',
-            'eventAction' : 'Duplicate Sign-up',
-            'eventLabel' : thisDivID,
-            'eventValue' : undefined,
-            'nonInteraction': false,
-            'event' : 'GAEvent'
-          });
-        } else {
-          $('.noteBox').show().html('<p style="color: #F00">'+data.submitSurveyResponse.errors.errorMessage+'</p>');
-          dataLayer.push({
-            'eventCategory' : 'Email Sign-up',
-            'eventAction' : 'Failed Sign-up',
-            'eventLabel' : thisDivID,
-            'eventValue' : undefined,
-            'nonInteraction': false,
-            'event' : 'GAEvent'
-          });
-        }
-      }
-    }
-  });
-})(jQuery);
-}
-
 (function($){
 
   $('form.emailFollowUs').attr('action', 'javascript:void(0);');
-  $('form.emailFollow').attr('action', 'javascript:void(0);');
   $('form.emailFooter').attr('action', 'javascript:void(0);');
 
   // initialize page
@@ -1703,15 +1666,6 @@ function submitEmailPage(thisDivID) {
     $('form.emailFollowUs .primaryEmail').keypress(function (e) {
       if (e.which == 13) {
         submitEmail('emailFollowUs');
-        return false;
-      }
-    });
-    $('form.emailFollow .submitButton').click(function() {
-      submitEmailPage('emailFollow');
-    });
-    $('form.emailFollow .primaryEmail').keypress(function (e) {
-      if (e.which == 13) {
-        submitEmailPage('emailFollow');
         return false;
       }
     });
@@ -1728,4 +1682,4 @@ function submitEmailPage(thisDivID) {
   });
 })(jQuery);
 </script>
-</html>
+</html> 

@@ -98,7 +98,38 @@
   <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700|Oswald" rel="stylesheet">
 
   <!-- Main CSS output file from Sass consolidation -->
-  <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0911170517">
+  <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0111181157">
+  
+    <style>
+	form.emailFollowBody input {
+	    height: 41px;
+	    padding: 10px;
+	    outline: none;
+	    border: 1px solid #C5C5C5;
+	    color: #636466;
+	    width: 200px;
+	    margin-top: 3px;
+	}
+	
+	form.emailFollowBody .submitButton {
+	    color: #FFFFFF;
+	    font-size: 16px;
+	    border: solid #79bf43 0px;
+	    text-decoration: none;
+	    text-align: center;
+	    letter-spacing: 2px;
+	    font-family: "Oswald", sans-serif;
+	    border-radius: 2px;
+	    background-color: #77BA59;
+	    background-image: -webkit-linear-gradient(#77BA59, #548E39);
+	    background-image: linear-gradient(#77BA59, #548E39);
+	    height: 41px;
+	    width: 100px;
+	    vertical-align: middle;
+	    margin-top: -4px;
+	    margin-left: -5px;
+	}
+	</style>
 
   <!-- Bootstrap core JavaScript -->
   <script type='text/javascript' src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -164,12 +195,12 @@
             </button>
           </div>
           <div class="row">
-            <div class="modal-title">Get the Inside Scoop on Central Park!</div>
+            <div class="modal-title">Get the inside scoop on Central Park!</div>
           </div>
         </div>
         <div class="modal-footer">
           <div class="modal-sub-title">
-            Be the first to know what's going on in the Park, unearth Park secrets, get special offers, and more.
+            Be the first to know what\'s going on in the Park, unearth Park secrets, get special offers, and more.
           </div>
           <div class="row sign-up-row">
             <form novalidate="novalidate" id="lbox_register_form" name="lbox_register_form" method="post" action="javascript:void(0);">
@@ -181,13 +212,13 @@
               <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">
               <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">
               <input name="s_src" value="website" type="hidden">
-              <input name="s_subsrc" value="insider_lightbox_2015" type="hidden">
+              <input name="s_subsrc" value="lightbox" type="hidden">
               <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">
               <input name="SURVEY_ID" value="4520" type="hidden">
               <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">
               <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">
               <button class="btnSignUpLightbox clickable" id="formSubmit">
-                SIGN UP NOW
+                Sign Up Now!
               </button>
             </form>
             <div class="bottom-link hidden-sm hidden-md hidden-lg">
@@ -226,7 +257,7 @@
       <div class="mobile-menu" id="offcanvas-menu">
         <ul class="navbar-mobile-menu">
           <li class="">
-            <button class="join-renew-mobile" tabindex="-1"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_mobile_mem" onclick="
+            <button class="join-renew-mobile" tabindex="-1"><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy19w&s_subsrc=web_nav_mobile_mem" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'Join or Renew', 
@@ -495,7 +526,7 @@
                 'nonInteraction': false, 
                 'event' : 'GAEvent'
               });" tabindex="-1">Benefit Events</a></li>
-              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=donate&s_src=dfy18w&s_subsrc=web_nav_mobile_don" onclick="
+              <li><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6300&6300.donation=form1&s_src=dfy19w&s_subsrc=web_nav_mobile_don" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'Support', 
@@ -504,7 +535,7 @@
                 'nonInteraction': false, 
                 'event' : 'GAEvent'
               });" tabindex="-1">Donate</a></li>
-              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial&s_src=hme18&s_subsrc=web_nav_mobile" onclick="
+              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial&s_src=hme19&s_subsrc=web_nav_mobile" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'Support', 
@@ -513,7 +544,7 @@
                 'nonInteraction': false, 
                 'event' : 'GAEvent'
               });" tabindex="-1">Honor / Memorial</a></li>
-              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_mobile_mem" onclick="
+              <li><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy19w&s_subsrc=web_nav_mobile_mem" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'Support', 
@@ -522,7 +553,7 @@
                 'nonInteraction': false, 
                 'event' : 'GAEvent'
               });" tabindex="-1">Join or Renew</a></li>
-              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf18&s_subsrc=web_nav_mobile" onclick="
+              <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf19&s_subsrc=web_nav_mobile" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
                 'eventAction' : 'Support', 
@@ -869,7 +900,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });" tabindex="-1">Benefit Events</a></li>
-                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=donate&s_src=dfy18w&s_subsrc=web_nav_top_don" onclick="
+                  <li><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6300&6300.donation=form1&s_src=dfy19w&s_subsrc=web_nav_top_don" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Support', 
@@ -878,7 +909,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });" tabindex="-1">Donate</a></li>
-                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial&s_src=hme18&s_subsrc=web_nav_top" onclick="
+                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial&s_src=hme19&s_subsrc=web_nav_top" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Support', 
@@ -887,7 +918,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });" tabindex="-1">Honor / Memorial</a></li>
-                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_top_mem" onclick="
+                  <li><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy19w&s_subsrc=web_nav_top_mem" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Support', 
@@ -896,7 +927,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });" tabindex="-1">Join or Renew</a></li>
-                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf18&s_subsrc=web_nav_top" onclick="
+                  <li><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf19&s_subsrc=web_nav_top" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Support', 
@@ -917,7 +948,7 @@
                 </ul>
               </li>
               <li class="donate-hp">
-                <a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_menu_mem" onclick="
+                <a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy19w&s_subsrc=web_nav_menu_mem" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Join or Renew', 
@@ -1013,8 +1044,8 @@
           <footer class="hidden-xs row">
             <div class="col-sm-3 hidden-xs">
               <a href="http://www.centralparknyc.org/" target="_blank"><img class="logo" src="http://support.centralparknyc.org/redesign/img/cpc/CPCwhitelogo.png" alt="Central Park Conservancy Logo"></a><br>
-              <p style="width:95%;">Central Park is managed and maintained by Central Park Conservancy under contract with the City of New York. Central Park Conservancy is a tax exempt 501(c)(3) nonprofit organization.</p>
-              <p><strong>Central Park Conservancy</strong><br>14 East 60th St<br>New York, NY, 10022<br>212.310.6600<br><br>&copy;2017 Central Park Conservancy. All Rights Reserved.<br/></p>
+              <p style="width:95%;">The Central Park Conservancy is a private, not-for-profit organization, and is tax exempt under Section 501(c)(3) of the Internal Revenue Code.</p>
+              <p><strong>Central Park Conservancy, Inc.</strong><br>14 East 60th St<br>New York, NY, 10022<br>212.310.6600<br><br>&copy;2018 Central Park Conservancy. All Rights Reserved.<br/></p>
             </div>
             <div class="col-sm-9 hidden-xs">
               <div class="row">
@@ -1262,7 +1293,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });">Benefit Events</a></li>
-                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=donate&s_src=dfy18w&s_subsrc=web_nav_footer_don" onclick="
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6300&6300.donation=form1&s_src=dfy19w&s_subsrc=web_nav_footer_don" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Footer', 
@@ -1271,7 +1302,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });">Donate</a></li>
-                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial&s_src=hme18&s_subsrc=web_nav_footer" onclick="
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial&s_src=hme19&s_subsrc=web_nav_footer" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Footer', 
@@ -1280,7 +1311,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });">Honor / Memorial</a></li>
-                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=membership&s_src=dfy18w&s_subsrc=web_nav_footer_mem" onclick="
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/Donation2?df_id=6260&6260.donation=form1&s_src=dfy19w&s_subsrc=web_nav_footer_mem" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Footer', 
@@ -1289,7 +1320,7 @@
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
                   });">Join or Renew</a></li>
-                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf18&s_subsrc=web_nav_footer" onclick="
+                    <li class="footer-sub-item"><a href="https://secure.centralparknyc.org/site/SPageServer?pagename=honor_memorial_flowers&s_src=daf19&s_subsrc=web_nav_footer" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Footer', 
@@ -1417,7 +1448,7 @@
                     'event' : 'GAEvent'
                   });">Contact Us</a></li>
                     <p class="footerAddress">Central Park Conservancy, 14 E. 60th St <br/> New York, NY, 10022&nbsp;&nbsp;Phone: 212.310.6600<br/>
-                       &#169;2017, Central Park Conservancy. All Rights Reserved.</p>
+                       &#169;2018, Central Park Conservancy. All Rights Reserved.</p>
                   </ul>
                 </div>
               </div>
@@ -1527,13 +1558,13 @@
   var OPLB;
   var html = '';
   
-  // Create HTML
+   // Create HTML
   html += '<div class="modal modal-mobile-bar fade" id="OPLB-seasonal-guide" aria-hidden="false" data-backdrop="true">';
   html += '  <div class="modal-dialog">';
   html += '    <div class="modal-content">';
   html += '      <div class="modal-header">';
-  html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge.jpg" class="desktop"/>';
-  html += '      <img src="http://www.centralparknyc.org/assets/images/lightbox/lightbox-winter2017-bow-bridge-mobile.jpg" class="mobile"/>';
+  html += '      <img src="http://assets.centralparknyc.org/images/email-assets/summer-guide-2018/summerGuide2018-lightbox.jpg" class="desktop"/>';
+  html += '      <img src="http://assets.centralparknyc.org/images/email-assets/summer-guide-2018/summerGuide2018-lightbox.jpg" class="mobile"/>';
   html += '        <div class="row">';
   html += '          <button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">';
   html += '            <i class="fa fa-caret-up" aria-hidden="true"></i>';
@@ -1548,7 +1579,7 @@
   html += '      </div>';
   html += '      <div class="modal-footer">';
   html += '        <div class="modal-signup">';
-  html += '          <div class="modal-title">Get the inside scoop on Central Park!</div>';
+  html += '          <div class="modal-title">Get the inside scoop on Central Park!</span></div>';
   html += '          <div class="modal-sub-title">';
   html += '            Be the first to know what\'s going on in the Park, unearth Park secrets, get special offers, and more.';
   html += '          </div>';
@@ -1567,15 +1598,44 @@
   html += '              <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">';
   html += '              <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">';
   html += '              <button class="btnSignUpLightbox clickable" id="OPLB_submit">';
-  html += '                Sign Up Now';
+  html += '                Sign Up Now!';
   html += '              </button>  ';
   html += '            </form>';
   html += '            <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
   html += '          </div>  ';
   html += '        </div>';
-  html += '        <div class="modal-thanks">';
+  html += '        <div class="modal-thanks modal-thanks-survey">';
   html += '          <div class="row thank-you-row">';
   html += '            <p class="lede">Thanks for signing up!</p>';
+  html += '            <p>Before you go, our Conservancy staff would love to know — <strong>which of the following ways do you use Central Park?</strong> <span class="hide-on-mobile">Pick as many options as you\'d like.</span></p>';
+  html += '            <form method="POST" action="http://support.centralparknyc.org/site/Survey">';
+  html += '             <input type="hidden" name="method" value="submitSurvey" />';
+  html += '             <input type="hidden" name="cons_email" value="" size="45" maxlength="255" />';
+  html += '               <ul>';
+  html += '                 <li>';
+  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_4" class="checkbox" value="1309"  />';
+  html += '                   <label for="1872_7027_2_9663_4" class="wrapable">Playing with your family</label>';
+  html += '                 </li>';
+  html += '                 <li>';
+  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_5" class="checkbox" value="1221"  />';
+  html += '                   <label for="1872_7027_2_9663_5" class="wrapable">Walking your dog</label>';
+  html += '                 </li>';
+  html += '                 <li>';
+  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_1" class="checkbox" value="1781"  />';
+  html += '                   <label for="1872_7027_2_9663_1" class="wrapable">Attending tours &amp; events</label>';
+  html += '                 </li>';
+  html += '                 <li>';
+  html += '                   <input type="checkbox" name="question_9663" id="1872_7027_2_9663_2" class="checkbox" value="1081"  />';
+  html += '                   <label for="1872_7027_2_9663_2" class="wrapable">Fitness or sports</label>';
+  html += '                 </li>';
+  html += '               </ul>';
+  html += '               <input type="hidden" name="denySubmit" id="denySubmit" value="" />';
+  html += '               <input type="submit" name="ACTION_SUBMIT_SURVEY_RESPONSE" id="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit" class="btn" />';
+  html += '               <input type="hidden" name="survey_id" value="7027" />';
+  html += '             </form>';
+  html += '             <button type="button" data-dismiss="modal" aria-label="Close" tabindex="-1">';
+  html += '               None of the above';
+  html += '             </button>';
   html += '          </div>';
   html += '          <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
   html += '        </div>';
@@ -1583,8 +1643,8 @@
   html += '    </div>';
   html += '  </div>';
   html += '</div>';
-
-    OPLB = {
+  
+  OPLB = {
     el: $(html),
     parent: $('body'),
     form: $('#OPLB_form'),
@@ -1631,7 +1691,7 @@
       $('.modal-backdrop').remove();
     },
     _canShow: function() {
-      return !(OPLB.util.readCookie('cpc-2016') == 'success' || OPLB.util.readCookie('cpc-2016') == 'close');
+      return !(OPLB.util.readCookie('cpc-2018') == 'success' || OPLB.util.readCookie('cpc-2018') == 'close');
     },
     _isValid: function() {
       return $('#OPLB_form').valid();
@@ -1641,7 +1701,7 @@
         console.log('Validation library is being loaded.');
         $.getScript('http://cpc.convio.net/js/jquery.validate.min.js');
       } else {
-        console.log('Validation library is already loaded.');
+        //console.log('Validation library is already loaded.');
       }
     },
     _bindValidation: function() {
@@ -1665,6 +1725,18 @@
           OPLB.submit();
         }
       });
+      /*
+	      $('.lb-seasonal-guide-link').click(function(){
+        dataLayer.push({
+          'eventCategory' : 'Spring Guide Lightbox',
+          'eventAction' : 'click',
+          'eventLabel' : 'Download Spring Guide PDF',
+          'eventValue' : undefined,
+          'nonInteraction': true,
+          'event' : 'GAEvent'
+        });
+      });
+      */
     },
     init: function() {
       // Load validation library, if necessary.
@@ -1696,13 +1768,21 @@
           requiresAuth: 'true',
           callback: function(data){
             if (data.submitSurveyResponse.success == 'true') {
-              OPLB.util.setCookie("cpc-2016", "success", 1);
+              OPLB.util.setCookie("cpc-2018", "success", 365);
               OPLB.util.submitOptimizelyEvent('email_signup_lightbox');
-              ga('send', 'event', 'Email Sign-up', 'Email Sign-up', 'fall_guide_lightbox');
+              dataLayer.push({
+		          'eventCategory' : 'Email Sign-up',
+		          'eventAction' : 'Email Sign-up',
+		          'eventLabel' : 'email_signup_lightbox',
+		          'eventValue' : undefined,
+		          'nonInteraction': false,
+		          'event' : 'GAEvent'
+		        });
               // Show thank you.
-              // OPLB.showThanks();
+              OPLB.showThanks();
+              console.log("show thanks");
               // Hide lightbox.
-              OPLB.el.modal('hide');
+              //OPLB.el.modal('hide');
               OPLB.submitted = true;
             } else {
               console.log('Error submitting form: ' + data.submitSurveyResponse.errors.errorMessage);
@@ -1713,20 +1793,51 @@
       }
     },
     showThanks: function() {
-      OPLB.el.find('.modal-signup').fadeOut('fast', function() {
-        OPLB.el.find('.modal-thanks').show();
+      OPLB.el.addClass( 'modal-survey-ask' );
+
+      // pull in email from last stop
+      OPLB.el.find( '.modal-thanks input[name="cons_email"]' ).val( OPLB.el.find( '.modal-signup input[name="cons_email"]' ).val() );
+
+      // hide signup and show TY content
+      OPLB.el.find( '.modal-signup' ).hide();
+      OPLB.el.find( '.modal-header > img' ).hide();
+      OPLB.el.find( '.modal-thanks' ).show();
+
+      OPLB.el.find( '.modal-thanks form' ).on( 'submit', function( event ) {
+        event.preventDefault();
+
+        // remove values for an unchecked interests so that
+        // users are not automatically opted-out
+        $( this ).find( 'input[type="checkbox"]' ).not( ':checked' )
+          .val( ' ' )
+          .attr( 'name', ' ' );
+
+        luminateExtend.api({
+          api: 'survey',
+          requestType: 'POST',
+          form: $( this ),
+          requiresAuth: 'true',
+          callback: function(data){
+            console.log( data );
+            OPLB.submitted = true;
+            OPLB.el.modal('hide');
+          }
+        });
+
+        return false;
+
       });
     },
     show: function() {
       OPLB.el.modal('show').on('hidden.bs.modal', function () {
         if (!OPLB.submitted) {
-          OPLB.util.setCookie('cpc-2016', 'close', 30);
+          OPLB.util.setCookie('cpc-2018', 'close', 30);
         }
       });
       dataLayer.push({
           'eventCategory' : 'Sign Up Lightbox',
-          'eventAction' : 'Sign Up Lightbox',
-          'eventLabel' : thisDivID,
+          'eventAction' : 'display',
+          'eventLabel' : 'Sign Up Lightbox',
           'eventValue' : undefined,
           'nonInteraction': true,
           'event' : 'GAEvent'
@@ -1737,13 +1848,12 @@
   $('.btnSignUpLightbox').click(function(){
     dataLayer.push({
           'eventCategory' : 'Sign Up Lightbox',
-          'eventAction' : 'Sign Up Button',
-          'eventLabel' : thisDivID,
+          'eventAction' : 'click',
+          'eventLabel' : 'Sign Up Button',
           'eventValue' : undefined,
           'nonInteraction': false,
           'event' : 'GAEvent'
         });
-    }
   });
   
   $(function() {
@@ -1763,14 +1873,6 @@
       $('#OPLB-seasonal-guide').addClass("modal-mobile-expand");
       $('.modal-sub-title').css("visibility", "visible");
     });
-    //make sure the mobile lightbox closes when you click outside of it
-    /*$(document).on('click touchstart', function(event) {
-      if(!$(event.target).closest('#OPLB-seasonal-guide').length) {
-        if($('#OPLB-seasonal-guide').is(":visible")) {
-          $('#OPLB-seasonal-guide').modal('hide');
-        }
-      }
-    })*/
   });
 })(jQuery);
 
@@ -1866,4 +1968,4 @@ function submitEmail(thisDivID) {
   });
 })(jQuery);
 </script>
-</html>
+</html> 

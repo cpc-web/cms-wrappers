@@ -1,44 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="${description}">
-  <meta name="author" content="Central Park Conservancy">
-
-  <title><t:value id="title">title</t:value> - The Official Website of Central Park NYC</title>
-  <t:value id="meta.keywords">meta.keywords</t:value>
-  <t:value id="meta.description">meta.description</t:value>
-
-  <!-- Open Graph data -->
-  <meta property="og:title" content="${title}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="${url}" />
-  <t:if test="large.length > 0"><t:list id="large"><meta property="og:image" content="${url}" /></t:list></t:if>
-  <t:else><t:if test="image.length > 0"><t:list id="image"><meta property="og:image" content="${url}" /></t:list></t:if>
-  <t:else><t:if test="thumb.length > 0"><t:list id="thumb"><meta property="og:image" content="${url}" /></t:list></t:if>
-  <t:else><meta property="og:image" content="http://www.centralparknyc.org/assets/images/support/support-main-image.jpg" /></t:else></t:else></t:else>
-  <meta property="og:description" content="${description}" />
-
-  <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){
-    w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-    j.async=true;
-    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })
-  (window,document,'script','dataLayer','GTM-T735RZ');
-</script>
-<!-- End Google Tag Manager -->
-
-  <!-- Styles for webfonts -->
-  <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700|Oswald" rel="stylesheet">
-
-  <!-- Main CSS output file from Sass consolidation -->
-  <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0111181157">
-  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="${description}">
+	<meta name="author" content="Central Park Conservancy">
+	
+	<title><t:value id="title">title</t:value> - The Official Website of Central Park NYC</title>
+	<t:value id="meta.keywords">meta.keywords</t:value>
+	<t:value id="meta.description">meta.description</t:value>
+	
+	<!-- Open Graph data -->
+	<meta property="og:title" content="${title}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="${url}" />
+	<t:if test="large.length > 0"><t:list id="large"><meta property="og:image" content="${url}" /></t:list></t:if>
+	<t:else><t:if test="image.length > 0"><t:list id="image"><meta property="og:image" content="${url}" /></t:list></t:if>
+	<t:else><t:if test="thumb.length > 0"><t:list id="thumb"><meta property="og:image" content="${url}" /></t:list></t:if>
+	<t:else><meta property="og:image" content="http://www.centralparknyc.org/assets/images/support/support-main-image.jpg" /></t:else></t:else></t:else>
+	<meta property="og:description" content="${description}" />
+	
+	<!-- Google Optimize: Page Hiding -->
+	<style>.async-hide { opacity: 0 !important} </style>
+	<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+	h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+	(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+	})(window,document.documentElement,'async-hide','dataLayer',4000,
+	{'GTM-MH7DTP9':true});</script>
+	<!-- end Google Optimize page hiding -->
+	
+	<!-- Google Analytics (modified for Google Optimize) -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-17339074-1', 'auto', {'allowLinker': true});
+		ga('require', 'GTM-MH7DTP9');
+		
+		ga('require', 'linker');
+		ga('linker:autoLink', ['centralparkconservancy.thundertix.com','centralparknyc.tumblr.com'], false, true);
+		
+		ga('require', 'displayfeatures');
+		
+		// I’m not entirely sure if this next bit of code is needed in this GA snippet, but I’m including it just in case.  It’s included in the Google Tag Manager GA tags.
+		if (window.CONVIO.referrer.length > 0) {
+			ga('set', 'referrer', window.CONVIO.referrer);
+		}
+	</script>
+	<!-- end Google Analytics -->
+	
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer', 'GTM-T735RZ');</script>
+	<!-- End Google Tag Manager -->
+	
+	<!-- Styles for webfonts -->
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700|Oswald" rel="stylesheet">
+	
+	<!-- Main CSS output file from Sass consolidation -->
+	<link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0111181157">
+	
     <style>
 	form.emailFollowBody input {
 	    height: 41px;

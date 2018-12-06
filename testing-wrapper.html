@@ -141,6 +141,8 @@
       });
     });
   </script>
+
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -236,7 +238,7 @@
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" id="visit-mobile" role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">Visit<i class="fa fa-caret-right" id="visit-mobile"></i><i class="fa fa-caret-down" id="visit-mobile"></i></a>
-            <ul class="dropdown-menu-mobile visit-mobile"
+            <ul class="dropdown-menu-mobile visit-mobile">
               <li><a href="http://www.centralparknyc.org/visit/" onclick="
                 dataLayer.push({ 
                 'eventCategory' : 'Navigation', 
@@ -1438,7 +1440,7 @@
       </div><!-- /.click-off-mobile-menu -->
     </div><!-- /#site-canvas -->
   </div><!-- /#offcanvas-wrapper -->
-</body>
+
 
 
 <script>
@@ -1518,7 +1520,7 @@
 })(jQuery);
 
 // begin scripts for email capture lightbox
-
+/*
 (function($){
 
   var OPLB;
@@ -1840,7 +1842,7 @@
     });
   });
 })(jQuery);
-
+*/
 // end scripts for email capture lightbox
 
 
@@ -1934,4 +1936,15 @@ function submitEmail(thisDivID) {
   });
 })(jQuery);
 </script>
+
+<script>
+function FormData(formName) {
+//Override a conflict between
+//CMS form.js file and Facebook's fbevents.js file.
+//Both use an object named FormData
+console.log("FormData() called.");
+}
+</script>
+
+</body>
 </html> 

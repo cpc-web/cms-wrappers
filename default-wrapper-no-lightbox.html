@@ -141,6 +141,7 @@
       });
     });
   </script>
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -184,7 +185,7 @@
             </button>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="visit-mobile" role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">Visit<i class="fa fa-caret-right" id="visit-mobile"></i><i class="fa fa-caret-down" id="visit-mobile"></i></a>
+            <a href="#" class="dropdown-toggle" id="visit-mobile">Visit<i class="fa fa-caret-right" id="visit-mobile"></i><i class="fa fa-caret-down" id="visit-mobile"></i></a>
             <ul class="dropdown-menu-mobile visit-mobile"
               <li><a href="http://www.centralparknyc.org/visit/" onclick="
                 dataLayer.push({ 
@@ -306,7 +307,7 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="about-mobile" role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">About the Conservancy<i class="fa fa-caret-right" id="about-mobile"></i><i class="fa fa-caret-down" id="about-mobile"></i></a>
+            <a href="#" class="dropdown-toggle" id="about-mobile">About the Conservancy<i class="fa fa-caret-right" id="about-mobile"></i><i class="fa fa-caret-down" id="about-mobile"></i></a>
             <ul class="dropdown-menu-mobile about-mobile">
               <li><a href="http://www.centralparknyc.org/about/" onclick="
                 dataLayer.push({ 
@@ -403,7 +404,7 @@
               });" tabindex="-1">Shop</a>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="support-mobile" role="button" aria-haspopup="true" aria-expanded="false" tabindex="-1">Support<i class="fa fa-caret-right" id="support-mobile"></i><i class="fa fa-caret-down" id="support-mobile"></i></a>
+            <a href="#" class="dropdown-toggle" id="support-mobile">Support<i class="fa fa-caret-right" id="support-mobile"></i><i class="fa fa-caret-down" id="support-mobile"></i></a>
             <ul class="dropdown-menu-mobile support-mobile">
               <li><a href="http://www.centralparknyc.org/support/" onclick="
                 dataLayer.push({ 
@@ -561,7 +562,7 @@
           <div class="navbar-desktop ">
             <ul class="nav navbar-nav ">
               <li class="dropdown visit">
-                <a href="http://www.centralparknyc.org/visit/" class="dropdown-toggle" role="button" onclick="
+                <a href="http://www.centralparknyc.org/visit/" class="dropdown-toggle" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Visit', 
@@ -569,7 +570,7 @@
                     'eventValue' : undefined,
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
-                  });" aria-haspopup="true" aria-expanded="false" tabindex="-1">Visit</a>
+                  });">Visit</a>
                 <ul class="dropdown-menu">
                   <li><a href="http://www.centralparknyc.org/things-to-see-and-do/" onclick="
                     dataLayer.push({ 
@@ -682,7 +683,7 @@
                 </ul>
               </li>
               <li class="dropdown about">
-                <a href="http://www.centralparknyc.org/about/" class="dropdown-toggle" role="button" onclick="
+                <a href="http://www.centralparknyc.org/about/" class="dropdown-toggle" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'About', 
@@ -690,7 +691,7 @@
                     'eventValue' : undefined,
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
-                  });" aria-haspopup="true" aria-expanded="false" tabindex="-1">About the Conservancy</a>
+                  });">About the Conservancy</a>
                 <ul class="dropdown-menu">
                   <li><a href="http://www.centralparknyc.org/about/management-board/" onclick="
                     dataLayer.push({ 
@@ -778,7 +779,7 @@
                   });" tabindex="-1">Shop</a>
               </li>
               <li class="dropdown support">
-                <a href="http://www.centralparknyc.org/support/" class="dropdown-toggle" role="button" onclick="
+                <a href="http://www.centralparknyc.org/support/" class="dropdown-toggle" onclick="
                     dataLayer.push({ 
                     'eventCategory' : 'Navigation', 
                     'eventAction' : 'Support', 
@@ -786,7 +787,7 @@
                     'eventValue' : undefined,
                     'nonInteraction': false, 
                     'event' : 'GAEvent'
-                  });" aria-haspopup="true" aria-expanded="false" tabindex="-1">Support</a>
+                  });">Support</a>
                 <ul class="dropdown-menu">
                   <li><a href="http://www.centralparknyc.org/support/forever-green.html" onclick="
                     dataLayer.push({ 
@@ -1387,7 +1388,7 @@
       </div><!-- /.click-off-mobile-menu -->
     </div><!-- /#site-canvas -->
   </div><!-- /#offcanvas-wrapper -->
-</body>
+
 <script>
 (function($){
 
@@ -1555,4 +1556,14 @@ $(document).ready(function() {
 });
 })(jQuery);
 </script>
+
+<script>
+function FormData(formName) {
+//Override a conflict between
+//CMS form.js file and Facebook's fbevents.js file.
+//Both use an object named FormData
+console.log("FormData() called.");
+}
+</script>
+</body>
 </html>

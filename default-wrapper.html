@@ -1649,10 +1649,6 @@
         }
         document.cookie = n + "=" + escape(String(v)) + '; path=/' + exp;
       },
-      submitOptimizelyEvent: function(optimizely_event_name) {
-        window['optimizely'] = window['optimizely'] || [];
-        window.optimizely.push(["trackEvent", optimizely_event_name]);
-      }
     },
     _cleanUp: function() {
       $('#captureModal').remove();
@@ -1735,7 +1731,6 @@
           callback: function(data){
             if (data.submitSurveyResponse.success == 'true') {
               OPLB.util.setCookie("cpc-2018", "success", 365);
-              OPLB.util.submitOptimizelyEvent('email_signup_lightbox');
               dataLayer.push({
 		          'eventCategory' : 'Email Sign-up',
 		          'eventAction' : 'Email Sign-up',
@@ -1864,7 +1859,6 @@ function submitEmail(thisDivID) {
       var errorVar = (data.errorResponse) ? data.errorResponse.code : '';
       if(successVar == 'true') {
         var submitOpt = 'email_signup_'+thisDivID;
-        submitOptimizelyEvent(submitOpt);
         $('.primaryEmail').hide();
         $('.submitButton').hide();
         $('.noteBox').show().html('<div id="thanksBox">Thank you! To complete your profile, visit our <a href="http://www.centralparknyc.org/cpc-registration.html?show=all" onClick="dataLayer.push({\'eventCategory\' : \'Link\', \'eventAction\' : \'Click\', \'eventLabel\' : \'Tell Us More - EmailWide\', \'eventValue\' : undefined, \'nonInteraction\': false, \'event\' : \'GAEvent\'});">Registration Page.</a></div>');

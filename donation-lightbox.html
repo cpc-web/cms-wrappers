@@ -21,16 +21,6 @@
   <t:else><meta property="og:image" content="http://www.centralparknyc.org/assets/images/support/support-main-image.jpg" /></t:else></t:else></t:else>
   <meta property="og:description" content="${description}" />
 
-  <!-- Optimizely code -->
-  <script src="https://cdn.optimizely.com/js/2131741199.js"></script>
-  <!--script src="//cdn.optimizely.com/js/2131741199.js"></script-->
-  <script type="text/javascript">
-    function submitOptimizelyEvent(optimizely_event_name) {
-      window['optimizely'] = window['optimizely'] || [];
-      window.optimizely.push(["trackEvent", optimizely_event_name]);
-    }
-  </script>
-
   <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){
@@ -186,8 +176,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<img src="http://assets.centralparknyc.org/images/lightbox/fye2017-lightbox-desktop.jpg" class="desktop"/>
-					<img src="http://assets.centralparknyc.org/images/lightbox/fye2017-lightbox-desktop.jpg" class="mobile"/>
+					<img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/fye2019-desktop.jpg" class="desktop"/>
+					<img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/fye2019-mobile.jpg" class="mobile"/>
 					<div class="row">
 						<button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">
 							<i class="fa fa-caret-up" aria-hidden="true"></i>
@@ -205,10 +195,10 @@
 						<div class="modal-title" id="fundraisingModal-title" style="text-transform: none;">Give back to Central Park in June and your gift will be matched!</div>
 						<div class="modal-sub-title" style="font-size: 19px;">Make a special, tax-deductible gift to care for your favorite urban oasis before June 30, and your donation for Central Park will be doubled &ndash; up to $200,000.</div>
 						<div class="row sign-up-row">
-							<form novalidate="novalidate" method="post" action="https://secure.centralparknyc.org/site/Donation2?df_id=6380&6380.donation=form1&mfc_pref=T&s_src=ds618w&s_subsrc=web_lightbox">
+							<form novalidate="novalidate" method="post" action="https://secure.centralparknyc.org/site/Donation2?df_id=6800&6800.donation=form1&mfc_pref=T&s_src=ds619w&s_subsrc=web_lightbox">
 								<button class="clickable" onclick="
 									dataLayer.push({ 
-									'eventCategory' : 'FYE 2018 Fundraising Lightbox', 
+									'eventCategory' : 'FYE 2019 Fundraising Lightbox', 
 									'eventAction' : 'click', 
 									'eventLabel' : 'Donate Now Button', 
 									'eventValue' : undefined,
@@ -1475,7 +1465,6 @@
 
 <script>
 (function($){
-
   function toggleNav() {
     if ($('#offcanvas-wrapper').hasClass('show-nav')) {
       // Do things on Nav Close
@@ -1491,15 +1480,12 @@
       });
     }
   }
-
   function searchClick() {
     $('.search-bar').toggle(300).toggleClass('search-bar-active');
   }
-
   $('.alert-btn').on('click', function(){
     $('.alert').slideToggle();
   });
-
   $('.search-hp').on("click", function(){
     searchClick();
     var searchClickHP = $('.search-bar').hasClass("search-bar-active");
@@ -1511,7 +1497,6 @@
       $('.fa-search.desktop-menu').css("color", "white");
     }
   });
-
   $('.search-mobile').on("click", function(){
     searchClick();
     var searchClickHP = $('.search-bar').hasClass("search-bar-active");
@@ -1525,19 +1510,16 @@
       $('.icon-li.search-mobile').css("color", "#636466");
     }
   });
-
   $('.dropdown-toggle').on("click", function(){
     var menuClass = "." + $(this).attr('id');
     var faMenuId = ".fa" + "#" + $(this).attr('id');
     $(menuClass).slideToggle();
     $(this).find(faMenuId).toggle();
   });
-
   $('#nav-toggle').on('click', function(){
     toggleNav();
     $(this).toggleClass('active');
   });
-
   $('.click-off-mobile-menu').on("click", function(){
     var mobileMenuOut = $('#offcanvas-wrapper').hasClass('show-nav');
     if (mobileMenuOut) {
@@ -1546,25 +1528,22 @@
       $('#nav-toggle').toggleClass('active');
     }
   });
-
 })(jQuery);
-
 // begin scripts for email capture lightbox
-
 (function($){
 	$(function() {
     // set cookies
-    var cookieValue = readCookie('fye18fund');
-    if (cookieValue == "cpc-fye2018") {
+    var cookieValue = readCookie('fye19fund');
+    if (cookieValue == "cpc-fye2019") {
       //console.log("cookie " + cookieValue);
     } else {
       //console.log("show lightbox?");
       $('#fundraisingModal').modal('show');
       setCookie("fye18fund", "cpc-fye2018", 1);
       dataLayer.push({
-        'eventCategory' : 'FYE 2018 Fundraising Lightbox',
+        'eventCategory' : 'FYE 2019 Fundraising Lightbox',
         'eventAction' : 'display',
-        'eventLabel' : 'FYE 2018 Fundraising Lightbox',
+        'eventLabel' : 'FYE 2019 Fundraising Lightbox',
         'eventValue' : undefined,
         'nonInteraction': true,
         'event' : 'GAEvent'
@@ -1591,9 +1570,7 @@
   });
 })(jQuery);
 // end scripts for email capture lightbox
-
 var urlFull = document.location.href;
-
 function submitEmail(thisDivID) {
 (function($){
   var myEmail = $('#'+thisDivID+' form input.primaryEmail').val();
@@ -1611,7 +1588,6 @@ function submitEmail(thisDivID) {
       var errorVar = (data.errorResponse) ? data.errorResponse.code : '';
       if(successVar == 'true') {
         var submitOpt = 'email_signup_'+thisDivID;
-        submitOptimizelyEvent(submitOpt);
         $('.primaryEmail').hide();
         $('.submitButton').hide();
         $('.noteBox').show().html('<div id="thanksBox">Thank you! To complete your profile, visit our <a href="http://www.centralparknyc.org/cpc-registration.html?show=all" onClick="dataLayer.push({\'eventCategory\' : \'Link\', \'eventAction\' : \'Click\', \'eventLabel\' : \'Tell Us More - EmailWide\', \'eventValue\' : undefined, \'nonInteraction\': false, \'event\' : \'GAEvent\'});">Registration Page.</a></div>');
@@ -1651,12 +1627,9 @@ function submitEmail(thisDivID) {
   });
 })(jQuery);
 }
-
 (function($){
-
   $('form.emailFollowUs').attr('action', 'javascript:void(0);');
   $('form.emailFooter').attr('action', 'javascript:void(0);');
-
   // initialize page
   $(document).ready(function() {
     // email submission scripts
@@ -1676,7 +1649,6 @@ function submitEmail(thisDivID) {
       if (e.which == 13) {
         submitEmail('emailFooter');
         return false;
-
       }
     });
   });

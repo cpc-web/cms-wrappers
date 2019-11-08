@@ -1,3 +1,4 @@
+<!--//Testing wrapper//    v2   -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,6 +66,7 @@
   
   <!-- Styles for webfonts -->
   <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700|Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:900&display=swap" rel="stylesheet">
   
   <!-- Main CSS output file from Sass consolidation -->
   <link rel="stylesheet" type="text/css" href="http://support.centralparknyc.org/assets/styles/css/main.css?v=0111181157">
@@ -98,6 +100,192 @@
       margin-top: -4px;
       margin-left: -5px;
   }
+
+
+
+  /*///Yvonnes styles*/
+
+  #OPLB-seasonal-guide .modal-footer, #fundraisingModal .modal-footer {
+    width: 100% !important;
+/*    border: solid 5px red;
+    border-radius: 20px;*/
+    background-image: url('https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/CPC-LightBox-Desktop-v4.png');
+    background-repeat: no-repeat;
+  }
+@media (max-width: 1023px){
+  #OPLB-seasonal-guide.fade.in, #fundraisingModal.fade.in{
+    width: 100%;
+  }
+  }
+
+
+@media (max-width: 1023px){
+  #OPLB-seasonal-guide .modal-footer, #fundraisingModal .modal-footer{
+    background-image: url('https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/CPC-LightBox-Mobile480x738-v4.png');
+    background-repeat: no-repeat;
+    width: 100% !important;
+    height: 738px;
+  }
+}
+
+@media (max-width: 767px){
+  #OPLB-seasonal-guide .modal-footer, #fundraisingModal .modal-footer{
+    background-image: url('https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/CPC-LightBox-Mobile737x150-v4.png');
+    background-repeat: no-repeat;
+    width: 100% !important;
+    height: 150px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .modal-dialog{
+    width: 890px !important;
+    height: 534px !important;
+  }
+}
+
+/*#OPLB-seasonal-guide .modal-dialog, #fundraisingModal .modal-dialog {
+*/  
+
+
+#OPLB-seasonal-guide .modal-content, 
+#fundraisingModal .modal-content {
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+.modal-signup {
+  height: 495px;
+}
+
+
+@media (max-width: 1023px){
+  #OPLB-seasonal-guide .modal-footer .modal-title, #fundraisingModal .modal-footer .modal-title {
+    display: none;
+}
+}
+
+@media (max-width: 767px){
+    #OPLB-seasonal-guide .modal-footer .modal-title, #fundraisingModal .modal-footer .modal-title {
+      display: 
+      margin-top: 0px;
+    position: absolute;
+    top: 200px;
+}
+}
+
+#OPLB-seasonal-guide .modal-footer .modal-title, #fundraisingModal .modal-footer .modal-title {
+  color: white;
+  margin-top: 30px;
+  font-size: 37px;
+}
+@media (max-width: 1023px){
+  .modal-sub-title{
+    position: absolute !important;
+    top: 200px !important;
+  }
+  }
+
+.modal-sub-title p {
+    margin-top: 76px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+
+
+}
+
+
+.modal-sub-title {
+  margin: 30px;
+  color: white;
+}
+
+div .span-text {
+  margin-top: 0px;
+}
+
+div .modal-sub-title p span.tripled{
+  font-family: 'Work Sans', sans-serif;
+}
+
+#OPLB-seasonal-guide .modal-footer form button, #fundraisingModal .modal-footer form button {
+  max-width: 674px !important;
+  height: 69px !important;
+  font-size: 28px !important;
+  font-weight: bolder !important;
+}
+
+@media (max-width: 1023px){
+  button.donate-submit {
+    margin: 0px !important;
+    margin-top: 40px !important;
+  }
+}
+
+@media (max-width: 767px){
+  .expand-btn{
+    visibility: hidden !important;
+  }
+}
+
+@media (max-width: 767px) {
+  button.donate-submit-xs {
+    visibility: visible !important;
+}
+}
+
+button.donate-submit-xs{
+  visibility: hidden;
+  position: absolute;
+  top: 87px ;
+  left: 300px;
+  max-width: 378px !important;
+  height: 36px !important;
+  font-size: 19px !important;
+  font-weight: bolder !important;
+  border: 0px;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: "Oswald", sans-serif;
+  border-radius: 2px;
+  vertical-align: middle;
+  width: 100%;
+  background: rgb(226, 0, 52);
+background: -moz-linear-gradient(88deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+background: -webkit-linear-gradient(88deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+background: -o-linear-gradient(88deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+background: -ms-linear-gradient(88deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+background: linear-gradient(178deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+
+}
+
+button.donate-submit{
+  margin: 42px;
+  max-width: 674px !important;
+  height: 69px !important;
+  font-size: 28px !important;
+  font-weight: bolder !important;
+  border: 0px;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: "Oswald", sans-serif;
+  border-radius: 2px;
+  vertical-align: middle;
+  width: 100%;
+  background: rgb(226, 0, 52);
+background: -moz-linear-gradient(88deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+background: -webkit-linear-gradient(88deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+background: -o-linear-gradient(88deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+background: -ms-linear-gradient(88deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+background: linear-gradient(178deg, rgb(226, 0, 52) 16%, rgb(180, 0, 42) 70%);
+
+}
   </style>
 
   <!-- Bootstrap core JavaScript -->
@@ -1432,7 +1620,7 @@
     <!-- ////////////////////////////// "STAR BAR" BEGINS /////////////////////////////////////// -->
         <div class="star-bar">
           <a target="_blank" href="http://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=3462#.VIhclzHF9ZA">
-            <img src="https://secure2.convio.net/cpc/images/content/pagebuilder/4star88x31.gif" alt="Charity Navigator logo" width="88" height="31" />
+            <img src="https://secure2.convio.net/cpc/images/content/pagebuilder/general_button.jpg" alt="Charity Navigator logo" width="88" height="31" />
           </a>
           <a href="http://www.guidestar.org/organizations/13-3022855/central-park-conservancy.aspx" target="_blank">
             <img src="http://widgets.guidestar.org/gximage2?o=6913470&l=v4" alt="Guidestar Logo"/>
@@ -1534,9 +1722,30 @@
   html += '<div class="modal modal-mobile-bar fade" id="OPLB-seasonal-guide" aria-hidden="false" data-backdrop="true">';
   html += '  <div class="modal-dialog">';
   html += '    <div class="modal-content">';
-  html += '      <div class="modal-header">';
-  html += '      <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/fallguide-lightbox-2019-a.jpg" class="desktop"/>';
-  html += '      <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/fallguide-lightbox-2019-a.jpg" class="mobile"/>';
+  // html += '      <div class="modal-header">';
+  // html += '      <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/fallguide-lightbox-2019-a.jpg" class="desktop"/>';
+  // html += '      <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/fallguide-lightbox-2019-a.jpg" class="mobile"/>';
+  // html += '        <div class="row">';
+  // html += '          <button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">';
+  // html += '            <i class="fa fa-caret-up" aria-hidden="true"></i>';
+  // html += '          </button>';
+  // html += '          <button type="button" class="close hidden-sm hidden-md hidden-lg close-button-x" data-dismiss="modal" aria-label="Close" tabindex="-1">';
+  // html += '            <i class="fa fa-times-circle-o" aria-hidden="true"></i>';
+  // html += '          </button>';
+  // html += '          <button type="button" class="close hidden-xs" data-dismiss="modal" aria-label="Close" tabindex="-1">';
+  // html += '            <img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png">';
+  // html += '          </button>';
+  // html += '        </div>  ';
+  // html += '      </div>';
+  html += '      <div class="modal-footer">';
+  html += '        <div class="modal-signup">';
+
+
+
+
+  html += '           <div class="modal-header">';
+  // html += '             <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/CPC-LightBox-Desktop-v4.png" class="desktop"/>';
+  // html += '             <img src="https://s3.amazonaws.com/assets.centralparknyc.org/images/homepage/fallguide-lightbox-2019-a.jpg" class="mobile"/>';
   html += '        <div class="row">';
   html += '          <button type="button" id="expand-modal" class="expand hidden-sm hidden-md hidden-lg expand-btn" aria-label="Expand" tabindex="-1">';
   html += '            <i class="fa fa-caret-up" aria-hidden="true"></i>';
@@ -1547,42 +1756,60 @@
   html += '          <button type="button" class="close hidden-xs" data-dismiss="modal" aria-label="Close" tabindex="-1">';
   html += '            <img src="http://www.centralparknyc.org/assets/images/lightbox/2014_recruit_modal_grey_close_v3.png">';
   html += '          </button>';
-  html += '        </div>  ';
+  html += '           <a href="https://secure.centralparknyc.org/site/Donation2?df_id=7043&mfc_pref=T&7043.donation=form1&utm_medium=website_homepage_lightbox&utm_source=cpc-appeal&utm_campaign=dsa19w&utm_content=website_homepage_lightbox&s_src=dsa19w&s_subsrc=website_homepage_lightbox&autologin=true"><button class="donate-submit-xs">DONATE TODAY!</button></a>';
+  html += '        </div>';
   html += '      </div>';
-  html += '      <div class="modal-footer">';
-  html += '        <div class="modal-signup">';
-  html += '          <div class="modal-title">YOUR FALL GUIDE TO CENTRAL PARK</span></div>';
+
+
+  html += '          <div class="modal-title">MATCH DEADLINE EXTENDED!</span></div>';
   html += '          <div class="modal-sub-title">';
-  html += '           This fall, take advantage of all the Park has to offer – find out about family programs, free events, and more in our Fall Guide to Central Park.';
+  html += '           <p>Show your support for your beloved Park.</p>';
+  html += '           <p class="span-text">All gifts <span class="tripled">TRIPLED.</p>';
+  html += '           <p class="span-text">But only through <span style="color: red;">MIDNIGHT.</span></p>';
+
+
+
+  html += '           <a href="https://secure.centralparknyc.org/site/Donation2?df_id=7043&mfc_pref=T&7043.donation=form1&utm_medium=website_homepage_lightbox&utm_source=cpc-appeal&utm_campaign=dsa19w&utm_content=website_homepage_lightbox&s_src=dsa19w&s_subsrc=website_homepage_lightbox&autologin=true"><button class="donate-submit">DONATE TODAY!</button></a>';
   html += '          </div>';
-  html += '          <div class="row sign-up-row">';
-  html += '            <form novalidate="novalidate" id="OPLB_form" name="lbox_register_form" method="post" action="javascript:void(0);">';
-  html += '              <input id="cons_email" name="cons_email" placeholder="Your Email" type="text">';
-  html += '              <input value="true" name="cons_email_opt_in" type="hidden">';
-  html += '              <input name="cons_info_component" value="true" type="hidden">';
-  html += '              <input name="cons_mail_opt_in" value="true" type="hidden">';
-  html += '              <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">';
-  html += '              <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">';
-  html += '              <input name="s_src" value="2019010_seasonal" type="hidden">';
-  html += '              <input name="s_subsrc" value="lightbox" type="hidden">';
-  html += '              <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">';
-  html += '              <input name="SURVEY_ID" value="8006" type="hidden">';
-  html += '              <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">';
-  html += '              <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">';
-  html += '              <button class="btnSignUpLightbox clickable" id="OPLB_submit">';
-  html += '                Get the Guide';
-  html += '              </button>  ';
-  html += '            </form>';
-  html += '            <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
-  html += '          </div>  ';
-  html += '        </div>';
-  html += '        <div class="modal-thanks modal-thanks-survey">';
-  html += '          <div class="row thank-you-row">';
-  html += '            <p class="lede">Thanks!</p>';
-  html += '            <p>Check your inbox for a link to the Fall Guide, or <a href="http://assets.centralparknyc.org/pdfs/guides/Fall-Guide-2019.pdf" target="_blank" class="lb-seasonal-guide-link">download it by clicking here</a>.</p>'; 
-  html += '          <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
-  html += '        </div>';
-  html += '      </div>';
+
+
+
+
+  // html += '          <div class="row sign-up-row">';
+  //  html += '            <form novalidate="novalidate" id="OPLB_form" name="lbox_register_form" method="post" action="javascript:void(0);">';
+  //  html += '              <input id="cons_email" name="cons_email" placeholder="Your Email" type="text">';
+  //  html += '              <input value="true" name="cons_email_opt_in" type="hidden">';
+  //  html += '              <input name="cons_info_component" value="true" type="hidden">';
+  //  html += '              <input name="cons_mail_opt_in" value="true" type="hidden">';
+  //  html += '              <input name="ACTION_SUBMIT_SURVEY_RESPONSE" value="Submit Survey" type="hidden">';
+  //  html += '              <input name="NEXTURL" value="http://www.centralparknyc.org/cpc-registration.html?show=all" type="hidden">';
+  //  html += '              <input name="s_src" value="2019010_seasonal" type="hidden">';
+  //  html += '              <input name="s_subsrc" value="lightbox" type="hidden">';
+  //  html += '              <input name="denySubmit" value="" alt="This field is used to prevent form submission by scripts." type="hidden">';
+  //  html += '              <input name="SURVEY_ID" value="8006" type="hidden">';
+  //  html += '              <input name="ERRORURL" id="ERRORURL" value="http://www.centralparknyc.org/cpc-registration.html" type="hidden">';
+  //  html += '              <input name="ifUsername" id="ifUsername" value="[[S1:user_name]]" type="hidden">';
+  //  html += '              <button class="btnSignUpLightbox clickable" id="OPLB_submit">';
+  //  html += '                DONATE TODAY!';
+  //  html += '              </button>  ';
+  //  html += '            </form>';
+  // html += '            <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
+  // html += '          </div>  ';
+  // html += '        </div>';
+
+
+
+
+
+
+
+   html += '        <div class="modal-thanks modal-thanks-survey">';
+   html += '          <div class="row thank-you-row">';
+   html += '            <p class="lede">Thanks!</p>';
+   html += '            <p>Check your inbox for a link to the Fall Guide, or <a href="http://assets.centralparknyc.org/pdfs/guides/Fall-Guide-2019.pdf" target="_blank" class="lb-seasonal-guide-link">download it by clicking here</a>.</p>'; 
+   html += '          <div class="bottom-link hidden-sm hidden-md hidden-lg"><div class="close bottom-link" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Continue to CentralParkNYC.org</span></div></div>';
+   html += '        </div>';
+   html += '      </div>';
   html += '    </div>';
   html += '  </div>';
   html += '</div>';
